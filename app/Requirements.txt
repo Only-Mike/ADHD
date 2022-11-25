@@ -3,3 +3,4 @@ gensim
 numpy
 streamlit
 sklearn
+xgboost
