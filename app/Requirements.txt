@@ -4,3 +4,9 @@ numpy
 streamlit
 sklearn
 xgboost
+altair
+spacy
+tqdm
+imblearn
+eli5
+pyldavis
