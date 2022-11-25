@@ -10,3 +10,4 @@ tqdm
 imblearn
 eli5
 pyldavis
+umap
