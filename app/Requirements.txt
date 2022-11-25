@@ -1,0 +1,5 @@
+pandas
+gensim
+numpy
+streamlit
+sklearn
