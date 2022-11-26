@@ -36,7 +36,7 @@ import pyLDAvis
 import pyLDAvis.gensim_models as gensimvis
 
 
-
+st.set_page_config(page_title='ADHD', page_icon="shocked_face_with_exploding_head", layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 
 
