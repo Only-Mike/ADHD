@@ -2,7 +2,7 @@ pandas
 gensim
 numpy
 streamlit
-sklearn
+scikit-learn
 xgboost
 altair
 spacy
