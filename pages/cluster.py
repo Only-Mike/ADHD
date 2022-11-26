@@ -6,6 +6,10 @@ import seaborn as sns
 import itertools
 import umap 
 
+st.title("ADHD Clustering")
+st.subheader("This app is made by Snorre and Mike")
+st.write("ADHD \n Something about ADHD clustering")
+
 
 df = pd.read_csv('/content/ADHD/datasets/KKI_phenotypic.csv')
 #dropping unrelevant columns
