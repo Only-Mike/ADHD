@@ -12,7 +12,7 @@ st.subheader("This app is made by Snorre and Mike")
 st.write("ADHD \n Something about ADHD clustering")
 
 #read in dataset
-df = pd.read_csv('/content/ADHD/datasets/KKI_phenotypic.csv')
+df = pd.read_csv('datasets/KKI_phenotypic.csv')
 
 #dropping unrelevant columns
 df = df.drop(columns = ['Site', 'ADHD Measure', 'IQ Measure', 'Full2 IQ', 'QC_Rest_1', 'QC_Rest_2', 'QC_Rest_3', 'QC_Rest_4', 'QC_Anatomical_1', 'QC_Anatomical_2'])
