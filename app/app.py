@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 #from tqdm import tqdm
-import preprocessor as prepro # text prepro
+#import preprocessor as prepro # text prepro
 
 import spacy #spacy for quick language prepro
 nlp = spacy.load('en_core_web_sm') #instantiating English module
