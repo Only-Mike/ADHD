@@ -4,32 +4,32 @@ import pandas as pd
 #from tqdm import tqdm
 #import preprocessor as prepro # text prepro
 
-import spacy #spacy for quick language prepro
-nlp = spacy.load('en_core_web_sm') #instantiating English module
+#import spacy #spacy for quick language prepro
+#nlp = spacy.load('en_core_web_sm') #instantiating English module
 
 # sampling, splitting
-from imblearn.under_sampling import RandomUnderSampler
+#from imblearn.under_sampling import RandomUnderSampler
 from sklearn.model_selection import train_test_split
 
 
 # loading ML libraries
-from sklearn.pipeline import make_pipeline #pipeline creation
-from sklearn.feature_extraction.text import TfidfVectorizer #transforms text to sparse matrix
-from sklearn.linear_model import LogisticRegression #Logit model
-from sklearn.metrics import classification_report #that's self explanatory
-from sklearn.decomposition import TruncatedSVD #dimensionality reduction
-from xgboost import XGBClassifier
+#from sklearn.pipeline import make_pipeline #pipeline creation
+#from sklearn.feature_extraction.text import TfidfVectorizer #transforms text to sparse matrix
+#from sklearn.linear_model import LogisticRegression #Logit model
+#from sklearn.metrics import classification_report #that's self explanatory
+#from sklearn.decomposition import TruncatedSVD #dimensionality reduction
+#from xgboost import XGBClassifier
 
 import altair as alt #viz
 
 #explainability
-import eli5
-from eli5.lime import TextExplainer
+#import eli5
+#from eli5.lime import TextExplainer
 
 # topic modeling
 
-from gensim.corpora.dictionary import Dictionary # Import the dictionary builder
-from gensim.models import LdaMulticore # we'll use the faster multicore version of LDA
+#from gensim.corpora.dictionary import Dictionary # Import the dictionary builder
+#from gensim.models import LdaMulticore # we'll use the faster multicore version of LDA
 
 # Import pyLDAvis
 import pyLDAvis
