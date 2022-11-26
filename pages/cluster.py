@@ -78,7 +78,7 @@ chart_data = pd.DataFrame(df_reduced_pca)
 c = alt.Chart(chart_data).mark_circle().encode(
     x='Gender', y='Age', size='Age', color='Gender', tooltip=['Gender', 'Age'])
 
-st.altair_chart(use_container_width=True)
+st.altair_chart(c, use_container_width=True)
 
 #Correlation heatmap
 plt.figure(figsize=(18,2))
