@@ -7,7 +7,7 @@ streamlit
 scikit-learn
 xgboost
 altair
-spaCy
+spacy
 tqdm
 imblearn
 eli5
