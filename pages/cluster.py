@@ -73,6 +73,12 @@ vis_data['Gender'] = df['Gender']
 vis_data['Age'] = df['Age']
 vis_data.columns = ['x', 'y', 'Gender', 'Age']
 
+alt.Chart(vis_data).mark_bar().encode(
+    x=alt.X("Industry", title="Count"),
+    y=alt.Y("index", sort="-x",
+        title="Industry"
+    ))
+
 #Correlation heatmap
 plt.figure(figsize=(18,2))
 sns.heatmap(pd.DataFrame(pca.components_, columns=df.columns), annot=True)
