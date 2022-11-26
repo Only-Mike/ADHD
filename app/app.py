@@ -40,7 +40,7 @@ st.set_page_config(page_title='ADHD', page_icon="shocked_face_with_exploding_hea
 
 st.title("ADHD")
 
-
+st.write("ADHD \n Something about ADHD")
 
 
 
