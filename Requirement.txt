@@ -4,7 +4,7 @@ seaborn
 gensim
 numpy
 streamlit
-scikit-learn
+sklearn
 xgboost
 altair
 spacy
