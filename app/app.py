@@ -4,11 +4,11 @@ import pandas as pd
 #from tqdm import tqdm
 #import preprocessor as prepro # text prepro
 
-#import spacy #spacy for quick language prepro
-#nlp = spacy.load('en_core_web_sm') #instantiating English module
+import spacy #spacy for quick language prepro
+nlp = spacy.load('en_core_web_sm') #instantiating English module
 
 # sampling, splitting
-#from imblearn.under_sampling import RandomUnderSampler
+from imblearn.under_sampling import RandomUnderSampler
 from sklearn.model_selection import train_test_split
 
 
