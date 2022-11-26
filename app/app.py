@@ -8,32 +8,32 @@ import pandas as pd
 #nlp = spacy.load('en_core_web_sm') #instantiating English module
 
 # sampling, splitting
-#from imblearn.under_sampling import RandomUnderSampler
-#from sklearn.model_selection import train_test_split
+from imblearn.under_sampling import RandomUnderSampler
+from sklearn.model_selection import train_test_split
 
 
 # loading ML libraries
-#from sklearn.pipeline import make_pipeline #pipeline creation
-#from sklearn.feature_extraction.text import TfidfVectorizer #transforms text to sparse matrix
-#from sklearn.linear_model import LogisticRegression #Logit model
-#from sklearn.metrics import classification_report #that's self explanatory
-#from sklearn.decomposition import TruncatedSVD #dimensionality reduction
-#from xgboost import XGBClassifier
+from sklearn.pipeline import make_pipeline #pipeline creation
+from sklearn.feature_extraction.text import TfidfVectorizer #transforms text to sparse matrix
+from sklearn.linear_model import LogisticRegression #Logit model
+from sklearn.metrics import classification_report #that's self explanatory
+from sklearn.decomposition import TruncatedSVD #dimensionality reduction
+from xgboost import XGBClassifier
 
-#import altair as alt #viz
+import altair as alt #viz
 
 #explainability
-#import eli5
-#from eli5.lime import TextExplainer
+import eli5
+from eli5.lime import TextExplainer
 
 # topic modeling
 
-#from gensim.corpora.dictionary import Dictionary # Import the dictionary builder
-#from gensim.models import LdaMulticore # we'll use the faster multicore version of LDA
+from gensim.corpora.dictionary import Dictionary # Import the dictionary builder
+from gensim.models import LdaMulticore # we'll use the faster multicore version of LDA
 
-# Import pyLDAvis
-#import pyLDAvis
-#import pyLDAvis.gensim_models as gensimvis
+#Import pyLDAvis
+import pyLDAvis
+import pyLDAvis.gensim_models as gensimvis
 
 
 st.set_page_config(page_title='ADHD', page_icon="shocked_face_with_exploding_head", layout="wide", initial_sidebar_state="auto", menu_items=None)
