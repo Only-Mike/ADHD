@@ -20,7 +20,7 @@ import pandas as pd
 #from sklearn.decomposition import TruncatedSVD #dimensionality reduction
 #from xgboost import XGBClassifier
 
-import altair as alt #viz
+#import altair as alt #viz
 
 #explainability
 #import eli5
@@ -32,8 +32,8 @@ import altair as alt #viz
 #from gensim.models import LdaMulticore # we'll use the faster multicore version of LDA
 
 # Import pyLDAvis
-import pyLDAvis
-import pyLDAvis.gensim_models as gensimvis
+#import pyLDAvis
+#import pyLDAvis.gensim_models as gensimvis
 
 
 st.set_page_config(page_title='ADHD', page_icon="shocked_face_with_exploding_head", layout="wide", initial_sidebar_state="auto", menu_items=None)
