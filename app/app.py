@@ -4,8 +4,8 @@ import pandas as pd
 #from tqdm import tqdm
 #import preprocessor as prepro # text prepro
 
-#import spacy #spacy for quick language prepro
-import spacy_streamlit
+import spacy #spacy for quick language prepro
+#import spacy_streamlit
 nlp = spacy.load('en_core_web_sm') #instantiating English module
 
 # sampling, splitting
