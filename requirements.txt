@@ -8,6 +8,7 @@ sklearn
 xgboost
 altair
 spacy
+en_core_web_sm
 tqdm
 imblearn
 eli5
