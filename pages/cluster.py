@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import itertools
 import umap 
+from sklearn.preprocessing import StandardScaler
 
 st.title("ADHD Clustering")
 st.subheader("This app is made by Snorre and Mike")
@@ -33,3 +34,32 @@ df['Secondary Dx '] = df['Secondary Dx '].fillna(0).astype(int)
 from sdv.tabular import GaussianCopula
 model = GaussianCopula()
 model.fit(df)
+
+#Creating the synthetic data
+synthetic_data = model.sample(500)
+synthetic_data.head()
+
+#Combining the two datasets
+df = df.append([synthetic_data])
+
+#We will scale the data which requires the following tool
+scaler = StandardScaler()
+
+df = df.loc[~df.index.duplicated(), :]
+
+# with the scaler.fit_transfor we learn x-y relationships and transform the data.
+df_scaled = scaler.fit_transform(df)
+
+#Age pre-scaling
+sns.displot(data=df, 
+            x="Age", 
+            kind="kde")
+
+#Age post-scaling
+sns.displot(data=pd.DataFrame(df_scaled, columns=df.columns), 
+            x="Age",
+            kind="kde")
+
+
+from sklearn.decomposition import PCA
+pca = PCA(n_components=2)
