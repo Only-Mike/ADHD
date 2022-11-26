@@ -10,7 +10,26 @@ st.title("ADHD Clustering")
 st.subheader("This app is made by Snorre and Mike")
 st.write("ADHD \n Something about ADHD clustering")
 
-
+#read in dataset
 df = pd.read_csv('/content/ADHD/datasets/KKI_phenotypic.csv')
+
 #dropping unrelevant columns
 df = df.drop(columns = ['Site', 'ADHD Measure', 'IQ Measure', 'Full2 IQ', 'QC_Rest_1', 'QC_Rest_2', 'QC_Rest_3', 'QC_Rest_4', 'QC_Anatomical_1', 'QC_Anatomical_2'])
+
+#Round age for fewer unique values and making into integer
+df['Age'] = df['Age'].round(decimals = 0)
+df['Age'] = df['Age'].astype(int)
+
+#Removes rows with -999 in the following columns
+df = df[df['Inattentive'] != -999]
+df = df[df['Hyper/Impulsive'] != -999]
+df = df[df['ADHD Index'] != -999]
+
+#Making none secondary dx into 0 and any secondary dx into 1
+df['Secondary Dx '].replace(('Simple phobia', 'Simple Phobia', 'simple phobias', 'ODD', 'Simple Phobia ', 'ODD; Phobia', 'Specific phobia', 'Phobia', 'social and simple phobia '), (1, 1, 1, 1, 1, 1, 1, 1, 1), inplace=True)
+df['Secondary Dx '] = df['Secondary Dx '].fillna(0).astype(int)
+
+#import Synthetic data creator SDV
+from sdv.tabular import GaussianCopula
+model = GaussianCopula()
+model.fit(df)
