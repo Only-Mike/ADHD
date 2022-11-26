@@ -1,4 +1,6 @@
 pandas
+matplotlib
+seaborn
 gensim
 numpy
 streamlit
@@ -11,5 +13,3 @@ imblearn
 eli5
 pyldavis
 umap
-matplotlib
-seaborn
