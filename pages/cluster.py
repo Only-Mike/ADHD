@@ -73,11 +73,12 @@ vis_data['Gender'] = df['Gender']
 vis_data['Age'] = df['Age']
 vis_data.columns = ['x', 'y', 'Gender', 'Age']
 
-alt.Chart(vis_data).mark_bar().encode(
-    x=alt.X("Gender", title="Count"),
-    y=alt.Y("Age", sort="-x",
-        title="Reduced data"
-    ))
+chart_data = pd.DataFrame(df_reduced_pca)
+
+c = alt.Chart(chart_data).mark_circle().encode(
+    x='Gender', y='Age', size='Age', color='Gender', tooltip=['Gender', 'Age'])
+
+st.altair_chart(c, use_container_width=True)
 
 #Correlation heatmap
 plt.figure(figsize=(18,2))
