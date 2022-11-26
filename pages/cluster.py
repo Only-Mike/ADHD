@@ -76,3 +76,4 @@ vis_data.columns = ['x', 'y', 'Gender', 'Age']
 #Correlation heatmap
 plt.figure(figsize=(18,2))
 sns.heatmap(pd.DataFrame(pca.components_, columns=df.columns), annot=True)
+plt.show()
