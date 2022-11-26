@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import tqdm
+import stqdm
 import preprocessor as prepro # text prepro
 
 import spacy #spacy for quick language prepro

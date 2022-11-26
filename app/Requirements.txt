@@ -6,7 +6,7 @@ sklearn
 xgboost
 altair
 spacy
-tqdm
+stqdm
 imblearn
 eli5
 pyldavis
