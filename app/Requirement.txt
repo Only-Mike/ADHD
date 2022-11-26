@@ -11,3 +11,5 @@ imblearn
 eli5
 pyldavis
 umap
+matplotlib
+seaborn
