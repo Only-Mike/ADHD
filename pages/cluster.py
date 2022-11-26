@@ -73,7 +73,7 @@ vis_data['Gender'] = df['Gender']
 vis_data['Age'] = df['Age']
 vis_data.columns = ['x', 'y', 'Gender', 'Age']
 
-chart_data = pd.DataFrame(df_reduced_pca)
+chart_data = pd.DataFrame(vis_data)
 
 c = alt.Chart(chart_data).mark_circle().encode(
     x='Gender', y='Age', size='Age', color='Gender', tooltip=['Gender', 'Age'])
