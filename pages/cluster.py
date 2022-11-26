@@ -74,9 +74,9 @@ vis_data['Age'] = df['Age']
 vis_data.columns = ['x', 'y', 'Gender', 'Age']
 
 alt.Chart(vis_data).mark_bar().encode(
-    x=alt.X("Industry", title="Count"),
-    y=alt.Y("index", sort="-x",
-        title="Industry"
+    x=alt.X("Gender", title="Count"),
+    y=alt.Y("Age", sort="-x",
+        title="Reduced data"
     ))
 
 #Correlation heatmap
