@@ -40,7 +40,7 @@ synthetic_data = model.sample(500)
 synthetic_data.head()
 
 #Combining the two datasets
-df = df.pd.concat([synthetic_data])
+df = pd.concat([synthetic_data, df])
 
 #We will scale the data which requires the following tool
 scaler = StandardScaler()
