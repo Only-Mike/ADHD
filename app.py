@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns; sns.set
-#from tqdm import tqdm
+from tqdm import tqdm
 import preprocessor as prepro # text prepro
 
 import spacy #spacy for quick language prepro
