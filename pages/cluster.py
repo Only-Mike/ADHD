@@ -60,6 +60,19 @@ sns.displot(data=pd.DataFrame(df_scaled, columns=df.columns),
             x="Age",
             kind="kde")
 
-
+#import at initialize PCA
 from sklearn.decomposition import PCA
 pca = PCA(n_components=2)
+
+# fit and transform the data
+df_reduced_pca = pca.fit_transform(df_scaled)
+
+import altair as alt
+vis_data = pd.DataFrame(df_reduced_pca)
+vis_data['Gender'] = df['Gender']
+vis_data['Age'] = df['Age']
+vis_data.columns = ['x', 'y', 'Gender', 'Age']
+
+#Correlation heatmap
+plt.figure(figsize=(18,2))
+sns.heatmap(pd.DataFrame(pca.components_, columns=df.columns), annot=True)
