@@ -112,7 +112,7 @@ Age_selected = st.slider("Select Age", min_value = int(df.Age.min()), max_value=
 df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
 
 #filter for country - set to a sidebar
-gender_select = st.checkbox.mulitselect("Gender ♂️♀️",(0, 1))
+gender_select = st.checkbox("Gender ♂️♀️",(0, 1))
 
 df = df[df.Gender.isin(gender_select)]
 
