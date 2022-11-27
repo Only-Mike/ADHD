@@ -101,7 +101,7 @@ embeddings = umap_scaler.fit_transform(df_scaled)
 
 #K-means clustering
 from sklearn.cluster import KMeans
-clusterer = KMeans(n_clusters=2)
+clusterer = KMeans(n_clusters=6)
 
 Sum_of_squared_distances = []
 K = range(1,10)
