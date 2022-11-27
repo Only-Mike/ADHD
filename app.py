@@ -78,7 +78,7 @@ df = pd.concat([synthetic_data, df])
 
 
 Age_selected = st.slider("Select Age", min_value = int(df.Age.min()), max_value= int(df.Age.max()), value = (0,100), step=1)
-df = df[(df.Age > age_selected[0]) & (df.Age < Age_selected[1])]
+df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
 #divorce= divorce[(divorce.Year > year_selected[0]) & (divorce.Year < year_selected[1])]
 
 #line chart for marriage
