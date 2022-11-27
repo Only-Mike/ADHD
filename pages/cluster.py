@@ -84,14 +84,17 @@ st.altair_chart(c, use_container_width=True)
 
 
 #Correlation heatmap
-plt.figure(figsize=(18,2))
+fig1 = plt.figure(figsize=(18,2))
 sns.heatmap(pd.DataFrame(pca.components_, columns=df.columns), annot=True)
-plt.show()
+st.pyplot(fig1)
 
 
 
 umap_scaler = umap.UMAP()
 embeddings = umap_scaler.fit_transform(df_scaled)
+
 #Clearly there is some difference between people with a secondary dianosis and those without
-rcParams['figure.figsize'] = 15,10
+fig2 = rcParams['figure.figsize'] = 15,10
 sns.scatterplot(embeddings[:,0],embeddings[:,1], hue = df['Secondary Dx '], sizes=(400, 400))
+
+st.pyplot(fig2)
