@@ -86,7 +86,7 @@ df_age = df_age[(df_age.Age > Age_selected[0]) & (df_age.Age < Age_selected[1])]
 #line chart for marriage
 c = alt.Chart(df_age).mark_circle().encode(
     
-    alt.X('Age:N',axis=alt.Axis(values=[ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]),
+    alt.X('Age:N',axis=alt.Axis(values=["Age_selected"]),
         scale=alt.Scale(zero=False),
     ),
     y='ADHD Index',
