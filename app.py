@@ -88,4 +88,5 @@ c = alt.Chart(df).mark_circle().encode(
         scale=alt.Scale(zero=False),
     ),
     y='Rate',
-    color=alt.value("#FF69B4")
+    color=alt.value("Gender")
+    st.altair_chart(c, use_container_width=True)
