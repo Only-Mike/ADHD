@@ -84,8 +84,7 @@ df_age = df_age[(df_age.Age > Age_selected[0]) & (df_age.Age < Age_selected[1])]
 
 #filter for country - set to a sidebar
 st.sidebar.title("Gender ♂️♀️")
-gender_select = st.sidebar.multiselect("What gender do you want?",
-                                ('0', '1'))
+gender_select = st.sidebar.multiselect("What gender do you want?",('0', '1'))
 
 
 
