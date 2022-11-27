@@ -48,8 +48,6 @@ st.write("Before diving into this app, we highly recommend (if you don't know wh
 st.write("If you don't know what ADHD is about we have linked a 2 minute video going through the basics of ADHD and what symptoms one might have")
 
 
-def shorten_vid_option(opt):
-    return opt.split("/")[-1]
 
 vidurl = st.selectbox(
     "Pick a video to play",
@@ -58,7 +56,6 @@ vidurl = st.selectbox(
         "https://www.youtube.com/watch?v=w8JnDhp83gA&ab_channel=NeuroscientificallyChallenged"
     ),
     0,
-    shorten_vid_option,
 )
 
 st.video(vidurl)
