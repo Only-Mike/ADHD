@@ -104,6 +104,6 @@ c1 = alt.Chart(vis_data).mark_circle(size=60).encode(
     y='y',
     tooltip=['Gender', 'Secondary Dx '],
     color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2'))
-).interactive()
+)#.interactive()
 
 st.altair_chart(c1, use_container_width=True)
