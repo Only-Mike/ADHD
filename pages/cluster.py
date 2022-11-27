@@ -95,6 +95,6 @@ embeddings = umap_scaler.fit_transform(df_scaled)
 
 #Clearly there is some difference between people with a secondary dianosis and those without
 fig2 = rcParams['figure.figsize'] = 15,10
-sns.scatterplot(embeddings[:,0],embeddings[:,1], hue = df['Secondary Dx '], sizes=(400, 400))
+sns.scatterplot(embeddings[:,0],embeddings[:,1], hue = df['Secondary Dx '])
 
 st.pyplot(fig2)
