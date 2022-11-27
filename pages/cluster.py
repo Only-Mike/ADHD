@@ -98,10 +98,41 @@ embeddings = umap_scaler.fit_transform(df_scaled)
 #sns.scatterplot(embeddings[:,0],embeddings[:,1], color = df['Secondary Dx '])
 #st.pyplot(fig2)
 
-vis_data1 = pd.DataFrame(df_reduced_pca)
+
+#K-means clustering
+from sklearn.cluster import KMeans
+clusterer = KMeans(n_clusters=2)
+
+Sum_of_squared_distances = []
+K = range(1,10)
+for k in K:
+    km = KMeans(n_clusters=k)
+    km = km.fit(df_scaled)
+    Sum_of_squared_distances.append(km.inertia_)
+
+#Umap scaler 
+umap_scaler_km = umap.UMAP(n_components=6)
+embeddings_km = umap_scaler.fit_transform(df_scaled)
+
+
+Sum_of_squared_distances = []
+K = range(1,10)
+for k in K:
+    km = KMeans(n_clusters=k)
+    km = km.fit(embeddings_km)
+    Sum_of_squared_distances.append(km.inertia_)
+
+
+clusterer.fit(df_scaled)
+df['cluster'] = clusterer.labels_
+df.groupby('cluster').Inattentive.mean()
+
+
+vis_data1 = pd.DataFrame(embeddings)
 vis_data1['Gender'] = df['Gender']
+vis_data1['cluster'] = df['cluster']
 vis_data1['Secondary Dx '] = df['Secondary Dx ']
-vis_data1.columns = ['x', 'y', 'Gender', 'Secondary Dx ']
+vis_data1.columns = ['x', 'y', 'Gender', 'cluster','Secondary Dx ']
 
 c1 = alt.Chart(vis_data1).mark_circle(size=60).encode(
     x='x',
