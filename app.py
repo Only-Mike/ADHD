@@ -121,7 +121,7 @@ df = df[df.Gender.isin(gender_select)]
 #line chart for age vs gender
 c = alt.Chart(df).mark_circle().encode(
     
-    alt.x('Age:N',axis=alt.Axis(values=["Age_selected"]),
+    alt.X('Age:N',axis=alt.Axis(values=["Age_selected"]),
         scale=alt.Scale(zero=False),
     ),
     y='ADHD Index',
