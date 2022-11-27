@@ -97,3 +97,13 @@ embeddings = umap_scaler.fit_transform(df_scaled)
 fig2 = rcParams['figure.figsize'] = 15,10
 sns.scatterplot(embeddings[:,0],embeddings[:,1], color = df['Secondary Dx '])
 st.pyplot(fig2)
+
+
+c1 = alt.Chart(vis_data).mark_circle(size=60).encode(
+    x='x',
+    y='y',
+    tooltip=['Gender', 'Secondary Dx '],
+    color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2'))
+).interactive()
+
+st.altair_chart(c1, use_container_width=True)
