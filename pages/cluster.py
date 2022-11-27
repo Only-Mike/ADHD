@@ -76,7 +76,7 @@ vis_data.columns = ['x', 'y', 'Gender', 'ADHD Index']
 chart_data = pd.DataFrame(vis_data)
 
 c = alt.Chart(chart_data).mark_circle().encode(
-    x='Gender', y='Age', size='Age', color='Gender', tooltip=['Gender', 'Age'])
+    x='Gender', y='ADHD Index', size='Age', color='Gender', tooltip=['Gender', 'ADHD Index'])
 
 st.altair_chart(c, use_container_width=True)
 
