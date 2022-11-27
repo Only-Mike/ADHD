@@ -104,7 +104,7 @@ st.write("For this visualization, we have used K-means and UMAP")
 
 #K-means clustering
 from sklearn.cluster import KMeans
-clusterer = KMeans(n_clusters=6)
+clusterer = KMeans(n_clusters=3)
 
 Sum_of_squared_distances = []
 K = range(1,10)
@@ -114,7 +114,7 @@ for k in K:
     Sum_of_squared_distances.append(km.inertia_)
 
 #Umap scaler 
-umap_scaler_km = umap.UMAP(n_components=6)
+umap_scaler_km = umap.UMAP(n_components=3)
 embeddings_km = umap_scaler.fit_transform(df_scaled)
 
 
