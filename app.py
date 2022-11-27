@@ -92,22 +92,14 @@ gender_select = st.sidebar.multiselect("What gender do you want?",("Female", "Ma
 
 df_age = df_age[df_age['Gender'].isin(gender_select)]
 
-#line chart for marriage
+#line chart for age vs gender
 c = alt.Chart(df_age).mark_circle().encode(
     
     alt.X('Age:N',axis=alt.Axis(values=["Age_selected"]),
         scale=alt.Scale(zero=False),
     ),
     y='ADHD Index',
-    color=alt.value("Gender")
-)
+    color=alt.value("Gender"),
+    tooltip=['Age:N', 'Gender', 'ADHD Index'])
+
 st.altair_chart(c, use_container_width=True)
-
-
-#from 1900 to 2018
-adhd_gender = df.groupby('Gender')['Gender'].count()
-adhd_gender = adhd_gender[(adhd_gender.index == 1) | (adhd_gender.index==0)]
-
-fig1 = px.pie(adhd_gender, values=adhd_gender.values, names=adhd_gender.index)
-#fig1.update_layout(height=500, width=600)
-fig1.show()
