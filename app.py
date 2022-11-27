@@ -103,6 +103,9 @@ df = pd.concat([synthetic_data, df])
 #"""Visualizing the app"""
 st.subheader("In this section you can play around with the data avaible to us")
 st.write("Note: As the dataset we have used didn't have many entries and was limited to age, we have used something called SDV to synthetise some more data. This means it has created data from itself and therefore better visualtions. BUT this also means the data isn't 100% true to real life until more data is avaible")
+st.write("You can help us get more data by answering these questions")
+st.caption("Link will come soon", unsafe_allow_html=True)
+
 
 #sliders
 Age_selected = st.slider("Select Age", min_value = int(df.Age.min()), max_value= int(df.Age.max()), value = (0,100), step=1)
