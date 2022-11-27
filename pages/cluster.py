@@ -139,11 +139,14 @@ vis_data1['cluster'] = df['cluster']
 vis_data1['Secondary Dx '] = df['Secondary Dx ']
 vis_data1.columns = ['x', 'y', 'Gender', 'cluster','Secondary Dx ']
 
-c1 = alt.Chart(vis_data1).mark_circle(size=60).encode(
-    x='x',
-    y='y',
-    tooltip=['Gender', 'Secondary Dx '],
-    color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2'))
-).interactive()
 
-st.altair_chart(c1, use_container_width=True)
+with st.spinner('Wait for it...'):
+    c1 = alt.Chart(vis_data1).mark_circle(size=60).encode(
+        x='x',
+        y='y',
+        tooltip=['Gender', 'Secondary Dx '],
+        color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2'))
+    ).interactive()
+
+    st.altair_chart(c1, use_container_width=True)
+st.success('Done!')
