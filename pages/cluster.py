@@ -98,8 +98,12 @@ embeddings = umap_scaler.fit_transform(df_scaled)
 #sns.scatterplot(embeddings[:,0],embeddings[:,1], color = df['Secondary Dx '])
 #st.pyplot(fig2)
 
+vis_data1 = pd.DataFrame(df_reduced_pca)
+vis_data1['Gender'] = df['Gender']
+vis_data1['Secondary Dx '] = df['Secondary Dx ']
+vis_data1.columns = ['x', 'y', 'Gender', 'Secondary Dx ']
 
-c1 = alt.Chart(vis_data).mark_circle(size=60).encode(
+c1 = alt.Chart(vis_data1).mark_circle(size=60).encode(
     x='x',
     y='y',
     tooltip=['Gender', 'Secondary Dx '],
