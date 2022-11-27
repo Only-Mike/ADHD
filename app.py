@@ -46,7 +46,7 @@ st.title("ADHD🧠")
 st.subheader("This app is made by Snorre and Mike")
 st.write("ADHD \n Something about ADHD")
 
-"""In this section we clean the data"""
+#"""In this section we clean the data"""
 #read in dataset
 df = pd.read_csv('datasets/KKI_phenotypic.csv')
 
@@ -81,7 +81,7 @@ synthetic_data.head()
 #Combining the two datasets
 df = pd.concat([synthetic_data, df])
 
-"""Visualizing the app"""
+#"""Visualizing the app"""
 #sliders
 Age_selected = st.slider("Select Age", min_value = int(df.Age.min()), max_value= int(df.Age.max()), value = (0,100), step=1)
 df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
