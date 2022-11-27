@@ -16,3 +16,4 @@ pyldavis
 umap-learn
 preprocessor
 sdv
+plotly

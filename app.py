@@ -7,6 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import seaborn as sns; sns.set
+import plotly.express as px
 from tqdm import tqdm
 import preprocessor as prepro # text prepro
 
