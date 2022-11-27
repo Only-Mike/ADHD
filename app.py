@@ -84,7 +84,7 @@ df_age = df_age[(df_age.Age > Age_selected[0]) & (df_age.Age < Age_selected[1])]
 
 #filter for country - set to a sidebar
 st.sidebar.title("Gender ♂️♀️")
-gender_select = st.sidebar.multiselect("What gender do you want? (0 is male, 1 is female)",('0', '1'))
+gender_select = st.sidebar.multiselect("What gender do you want? (0 is male, 1 is female)",(0, 1))
 
 df_age = df_age[df_age['Gender'].isin(gender_select)]
 
@@ -98,3 +98,12 @@ c = alt.Chart(df_age).mark_circle().encode(
     color=alt.value("Gender")
 )
 st.altair_chart(c, use_container_width=True)
+
+
+#from 1900 to 2018
+adhd_gender = df.groupby('Gender')['Gender'].count()
+adhd_gender = adhd_gender[(adhd_gender.index == 1) | (sex_attacks.index==0)]
+
+gender_fig = px.pie(adhd_gender, values=adhd_gender.values, names=adhd_gender.index)
+gender_fig.update_layout(height=500, width=600)
+gender_fig.show()
