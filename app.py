@@ -44,7 +44,10 @@ import pyLDAvis.gensim_models as gensimvis
 
 st.title("ADHD🧠")
 st.subheader("This app is made by Snorre and Mike")
-st.write("ADHD \n Something about ADHD")
+st.write("Before diving into this app, we highly recommend (if you don't know what it is already) diving into what ADHD is")
+st.write("If you don't know what ADHD is about we have linked a 2 minute video going through the basics")
+st.video(https://www.youtube.com/watch?v=9TcNQkyxMj8&ab_channel=AmericanPsychiatricAssociation, format="video/mp4", start_time=0)
+
 
 #"""In this section we clean the data"""
 #read in dataset
@@ -80,6 +83,9 @@ synthetic_data.head()
 
 #Combining the two datasets
 df = pd.concat([synthetic_data, df])
+
+
+
 
 #"""Visualizing the app"""
 #sliders
