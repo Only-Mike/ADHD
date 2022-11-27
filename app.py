@@ -97,4 +97,4 @@ c = alt.Chart(df_age).mark_circle().encode(
     y='ADHD Index',
     color=alt.value("Gender")
 )
-st.altair_chart(c, use_container_width=True)
+#st.altair_chart(c, use_container_width=True)
