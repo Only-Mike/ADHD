@@ -56,6 +56,9 @@ df = df.drop(columns = ['Site', 'ADHD Measure', 'IQ Measure', 'Full2 IQ', 'QC_Re
 df['Age'] = df['Age'].round(decimals = 0)
 df['Age'] = df['Age'].astype(int)
 
+#Making gender from 0 and 1 to Female and Male
+df['Gender'].replace(('1', '0'), ("Male", "Female"), inplace=True)
+
 #Removes rows with -999 in the following columns
 df = df[df['Inattentive'] != -999]
 df = df[df['Hyper/Impulsive'] != -999]
@@ -85,7 +88,7 @@ df_age = df_age[(df_age.Age > Age_selected[0]) & (df_age.Age < Age_selected[1])]
 
 #filter for country - set to a sidebar
 st.sidebar.title("Gender ♂️♀️")
-gender_select = st.sidebar.multiselect("What gender do you want? (0 is male, 1 is female)",(0, 1))
+gender_select = st.sidebar.multiselect("What gender do you want?",("Female", "Male"))
 
 df_age = df_age[df_age['Gender'].isin(gender_select)]
 
