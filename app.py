@@ -114,7 +114,7 @@ df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
 
 #filter for country - set to a sidebar
 st.sidebar.title("Gender ♂️♀️")
-gender_select = st.sidebar.multiselect("Gender ♂️♀️", ("Female", "Male"))
+gender_select = st.sidebar.multiselect("Select Gender ♂️♀️", ("Female", "Male"))
 
 df = df[df.Gender.isin(gender_select)]
 
