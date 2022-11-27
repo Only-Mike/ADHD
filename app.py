@@ -89,7 +89,7 @@ df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
 st.sidebar.title("Gender ♂️♀️")
 gender_select = st.sidebar.multiselect("What gender do you want?",("Female", "Male"))
 
-df = df[df.Gender].isin("gender_select")
+df = df[df.Gender.isin("gender_select")]
 
 #line chart for age vs gender
 c = alt.Chart(df).mark_circle().encode(
