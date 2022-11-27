@@ -81,19 +81,18 @@ synthetic_data.head()
 df = pd.concat([synthetic_data, df])
 
 
-#for the sliders we are using a new value called df_age
-df_age = df
-Age_selected = st.slider("Select Age", min_value = int(df_age.Age.min()), max_value= int(df_age.Age.max()), value = (0,100), step=1)
-df_age = df_age[(df_age.Age > Age_selected[0]) & (df_age.Age < Age_selected[1])]
+#sliders
+Age_selected = st.slider("Select Age", min_value = int(df.Age.min()), max_value= int(df.Age.max()), value = (0,100), step=1)
+df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
 
 #filter for country - set to a sidebar
 st.sidebar.title("Gender ♂️♀️")
 gender_select = st.sidebar.multiselect("What gender do you want?",("Female", "Male"))
 
-df_age = df_age[df_age['Gender'].isin(gender_select)]
+df = df[df.Gender].isin(gender_select)
 
 #line chart for age vs gender
-c = alt.Chart(df_age).mark_circle().encode(
+c = alt.Chart(df).mark_circle().encode(
     
     alt.X('Age:N',axis=alt.Axis(values=["Age_selected"]),
         scale=alt.Scale(zero=False),
