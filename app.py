@@ -44,19 +44,3 @@ st.set_page_config(page_title='ADHD', page_icon="shocked_face_with_exploding_hea
 st.title("ADHD")
 st.subheader("This app is made by Snorre and Mike")
 st.write("ADHD \n Something about ADHD")
-
-
-
-
-
-if st.button('Generate pyLDAvis'):
-            with st.spinner('Creating pyLDAvis Visualization ...'):
-                py_lda_vis_data = pyLDAvis.gensim_models.prepare(st.session_state.model, st.session_state.corpus,
-                                                                 st.session_state.id2word)
-                py_lda_vis_html = pyLDAvis.prepared_data_to_html(py_lda_vis_data)
-            with st.expander('pyLDAvis', expanded=True):
-                st.markdown('pyLDAvis is designed to help users interpret the topics in a topic model that has been '
-                            'fit to a corpus of text data. The package extracts information from a fitted LDA topic '
-                            'model to inform an interactive web-based visualization.')
-                st.markdown('https://github.com/bmabey/pyLDAvis')
-                components.html(py_lda_vis_html, width=1300, height=800)
