@@ -82,6 +82,8 @@ c = alt.Chart(chart_data).mark_circle().encode(
 
 st.altair_chart(c, use_container_width=True)
 
+st.subheader("Correlation heatmap")
+st.write("This shows the correlation between different values in the dataset")
 
 #Correlation heatmap
 fig1 = plt.figure(figsize=(18,2))
@@ -89,6 +91,9 @@ sns.heatmap(pd.DataFrame(pca.components_, columns=df.columns), annot=True)
 st.pyplot(fig1)
 
 
+
+st.subheader("UMAP and K-means clustering")
+st.write("For this visualization, we have used K-means and UMAP")
 
 umap_scaler = umap.UMAP()
 embeddings = umap_scaler.fit_transform(df_scaled)
@@ -98,9 +103,6 @@ embeddings = umap_scaler.fit_transform(df_scaled)
 #sns.scatterplot(embeddings[:,0],embeddings[:,1], color = df['Secondary Dx '])
 #st.pyplot(fig2)
 
-
-st.subheader("UMAP and K-means clustering")
-st.write("For this visualization, we have used K-means and UMAP")
 
 #K-means clustering
 from sklearn.cluster import KMeans
