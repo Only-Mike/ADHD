@@ -48,7 +48,7 @@ st.write("Before diving into this app, we highly recommend (if you don't know wh
 st.write("If you don't know what ADHD is about we have linked a 2 minute video going through the basics of ADHD and what symptoms one might have")
 
 vidurl = st.selectbox(
-    "Pick a video to play"
+    "Pick a video to play",
     (
         "https://www.youtube.com/watch?v=9TcNQkyxMj8&ab_channel=AmericanPsychiatricAssociation"
     ),
