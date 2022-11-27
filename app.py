@@ -1,4 +1,7 @@
 import streamlit as st
+st.set_page_config(page_title='ADHD', page_icon="🤯", layout="wide")
+
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -37,9 +40,6 @@ from gensim.models import LdaMulticore # we'll use the faster multicore version 
 #Import pyLDAvis
 import pyLDAvis
 import pyLDAvis.gensim_models as gensimvis
-
-
-st.set_page_config(page_title='ADHD', page_icon="🤯", layout="wide")
 
 st.title("ADHD")
 st.subheader("This app is made by Snorre and Mike")
