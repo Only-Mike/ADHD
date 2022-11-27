@@ -58,7 +58,7 @@ vidurl = st.selectbox(
     0,
 )
 
-st.video(vidurl)
+st.video(vidurl, format="video/mp4", start_time=0 )
 
 
 #"""In this section we clean the data"""
