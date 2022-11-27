@@ -99,6 +99,9 @@ embeddings = umap_scaler.fit_transform(df_scaled)
 #st.pyplot(fig2)
 
 
+st.subheader("UMAP and K-means clustering")
+st.write("For this visualization, we have used K-means and UMAP")
+
 #K-means clustering
 from sklearn.cluster import KMeans
 clusterer = KMeans(n_clusters=6)
