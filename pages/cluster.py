@@ -70,8 +70,8 @@ df_reduced_pca = pca.fit_transform(df_scaled)
 import altair as alt
 vis_data = pd.DataFrame(df_reduced_pca)
 vis_data['Gender'] = df['Gender']
-vis_data['Age'] = df['Age']
-vis_data.columns = ['x', 'y', 'Gender', 'Age']
+vis_data['ADHD Index'] = df['ADHD Index']
+vis_data.columns = ['x', 'y', 'Gender', 'ADHD Index']
 
 chart_data = pd.DataFrame(vis_data)
 
