@@ -55,6 +55,7 @@ vidurl = st.selectbox(
     "Pick a video to play",
     (
         "https://www.youtube.com/watch?v=9TcNQkyxMj8&ab_channel=AmericanPsychiatricAssociation"
+        "https://www.youtube.com/watch?v=w8JnDhp83gA&ab_channel=NeuroscientificallyChallenged"
     ),
     0,
     shorten_vid_option,
