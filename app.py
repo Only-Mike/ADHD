@@ -102,7 +102,7 @@ st.altair_chart(c, use_container_width=True)
 
 #from 1900 to 2018
 adhd_gender = df.groupby('Gender')['Gender'].count()
-adhd_gender = adhd_gender[(adhd_gender.index == 1) | (sex_attacks.index==0)]
+adhd_gender = adhd_gender[(adhd_gender.index == 1) | (adhd_gender.index==0)]
 
 gender_fig = px.pie(adhd_gender, values=adhd_gender.values, names=adhd_gender.index)
 gender_fig.update_layout(height=500, width=600)
