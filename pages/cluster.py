@@ -69,14 +69,14 @@ df_reduced_pca = pca.fit_transform(df_scaled)
 
 import altair as alt
 vis_data = pd.DataFrame(df_reduced_pca)
-vis_data['Gender'] = df['Gender']
+vis_data['Age'] = df['Age']
 vis_data['ADHD Index'] = df['ADHD Index']
-vis_data.columns = ['x', 'y', 'Gender', 'ADHD Index']
+vis_data.columns = ['x', 'y', 'Age', 'ADHD Index']
 
 chart_data = pd.DataFrame(vis_data)
 
 c = alt.Chart(chart_data).mark_circle().encode(
-    x='Gender', y='ADHD Index', size='ADHD Index', color='Gender', tooltip=['Gender', 'ADHD Index'])
+    x='Age', y='ADHD Index', size='ADHD Index', color='Age', tooltip=['Age', 'ADHD Index'])
 
 st.altair_chart(c, use_container_width=True)
 
