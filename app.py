@@ -80,3 +80,12 @@ df = pd.concat([synthetic_data, df])
 Age_selected = st.slider("Select Age", min_value = int(df.Age.min()), max_value= int(df.Age.max()), value = (0,100), step=1)
 df = df[(df.Age > age_selected[0]) & (df.Age < Age_selected[1])]
 #divorce= divorce[(divorce.Year > year_selected[0]) & (divorce.Year < year_selected[1])]
+
+#line chart for marriage
+c = alt.Chart(df).mark_circle().encode(
+    
+    alt.X('Age:N',axis=alt.Axis(values=[ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]),
+        scale=alt.Scale(zero=False),
+    ),
+    y='Rate',
+    color=alt.value("#FF69B4")
