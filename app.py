@@ -45,9 +45,10 @@ import pyLDAvis.gensim_models as gensimvis
 st.title("ADHD🧠")
 st.subheader("This app is made by Snorre and Mike")
 st.write("Before diving into this app, we highly recommend (if you don't know what it is already) diving into what ADHD is")
-st.write("If you don't know what ADHD is about we have linked a 2 minute video going through the basics")
+st.write("If you don't know what ADHD is about we have linked a 2 minute video going through the basics of ADHD and what symptoms one might have")
 st.video("https://www.youtube.com/watch?v=9TcNQkyxMj8&ab_channel=AmericanPsychiatricAssociation", format="video/mp4", start_time=0)
 st.write("https://www.youtube.com/watch?v=9TcNQkyxMj8&ab_channel=AmericanPsychiatricAssociation")
+
 
 #"""In this section we clean the data"""
 #read in dataset
@@ -88,6 +89,9 @@ df = pd.concat([synthetic_data, df])
 
 
 #"""Visualizing the app"""
+st.subheader("In this section you can play around with the data avaible to us")
+st.write("Note: As the dataset we have used didn't have many entries and was limited to age, we have used something called SDV to synthetise some more data. This means it has created data from itself and therefore better visualtions")
+
 #sliders
 Age_selected = st.slider("Select Age", min_value = int(df.Age.min()), max_value= int(df.Age.max()), value = (0,100), step=1)
 df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
