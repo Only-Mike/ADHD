@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import rcParams
 import seaborn as sns
 import itertools
 import umap 
@@ -67,6 +68,7 @@ pca = PCA(n_components=2)
 # fit and transform the data
 df_reduced_pca = pca.fit_transform(df_scaled)
 
+#Reduced data chart
 import altair as alt
 vis_data = pd.DataFrame(df_reduced_pca)
 vis_data['Age'] = df['Age']
@@ -80,7 +82,16 @@ c = alt.Chart(chart_data).mark_circle().encode(
 
 st.altair_chart(c, use_container_width=True)
 
+
 #Correlation heatmap
 plt.figure(figsize=(18,2))
 sns.heatmap(pd.DataFrame(pca.components_, columns=df.columns), annot=True)
 plt.show()
+
+
+
+umap_scaler = umap.UMAP()
+embeddings = umap_scaler.fit_transform(df_scaled)
+#Clearly there is some difference between people with a secondary dianosis and those without
+rcParams['figure.figsize'] = 15,10
+sns.scatterplot(embeddings[:,0],embeddings[:,1], hue = df['Secondary Dx '], sizes=(400, 400))
