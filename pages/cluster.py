@@ -106,6 +106,8 @@ embeddings = umap_scaler.fit_transform(df_scaled)
 
 #K-means clustering
 from sklearn.cluster import KMeans
+
+
 clusterer = KMeans(n_clusters=3)
 
 Sum_of_squared_distances = []
@@ -140,13 +142,17 @@ vis_data1['Secondary Dx '] = df['Secondary Dx ']
 vis_data1.columns = ['x', 'y', 'Gender', 'cluster','Secondary Dx ']
 
 
-with st.spinner('Wait for it...'):
-    c1 = alt.Chart(vis_data1).mark_circle(size=60).encode(
-        x='x',
-        y='y',
-        tooltip=['Gender', 'Secondary Dx '],
-        color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2'))
-    ).interactive()
 
-    st.altair_chart(c1, use_container_width=True)
+c1 = alt.Chart(vis_data1).mark_circle(size=60).encode(
+    x='x',
+    y='y',
+    tooltip=['Gender', 'Secondary Dx '],
+    color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2'))
+).interactive()
+
+st.altair_chart(c1, use_container_width=True)
+
+
+#wrap up 
+with st.spinner('Wait for it...'):
 st.success('Done!')
