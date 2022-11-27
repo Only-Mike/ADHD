@@ -89,7 +89,7 @@ gender_select = st.sidebar.multiselect("What gender do you want?",('0', '1'))
 
 
 
-df_age = df_age[df_age.Gender(gender_select)]
+df_age = df_age[df_age['Gender'](gender_select)]
 
 #line chart for marriage
 c = alt.Chart(df_age).mark_circle().encode(
