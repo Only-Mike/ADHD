@@ -175,13 +175,9 @@ with tab3:
         X_new = [[in_lvl, imp_hy_lvl]]
         model.predict(X_new)
         st.write( "ADHD index is", X_new)
-    else: 
-        st.write("Put in a number")
-
-    if model.predict(X_new) >= 60:
+    elif model.predict(X_new) >= 60:
         st.write('You most likely have ADHD or ADD')
-    else: 
-        st.write('you dont have ADHD')
+    elif st.write('you dont have ADHD'):
 
 
 with tab4:
