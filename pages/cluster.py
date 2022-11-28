@@ -47,7 +47,7 @@ def read_process_data():
 
     return df
 
-
+df = read_process_data()
 
 
 #We will scale the data which requires the following tool
