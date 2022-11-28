@@ -178,10 +178,10 @@ with tab3:
     else: 
         st.write("Put in a number")
     
-        if model.predict(X_new) >= 60:
-            st.write('You most likely have ADHD or ADD')
-        else: 
-            st.write('you dont have ADHD')
+    if model.predict(X_new) >= 60:
+        st.write('You most likely have ADHD or ADD')
+    else: 
+        st.write('you dont have ADHD')
 
 
 with tab4:
