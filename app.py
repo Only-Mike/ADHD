@@ -167,15 +167,17 @@ with tab3:
     hy_lvl = st.number_input(label="How would you rank your hyper level from 1 to 10?", min_value=1, max_value=10)
     Imp_lvl = st.number_input(label="How would you rank your impulsive level from 1 to 10?", min_value=1, max_value=10)
 
-    imp_hy_lvl = (hy_lvl+Imp_lvl)/2
     
-    X_new = [[in_lvl, imp_hy_lvl]]
+    
 
     if st.button('Predict'):
-
+        imp_hy_lvl = (hy_lvl+Imp_lvl)/2
+        X_new = [[in_lvl, imp_hy_lvl]]
         model.predict(X_new)
         st.write( "ADHD index is", X_new)
-
+    else: 
+        st.write("Put in a number")
+    
     if model.predict(X_new) >= 60:
         st.write('You most likely have ADHD or ADD')
     else: 
