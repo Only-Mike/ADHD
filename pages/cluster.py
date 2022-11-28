@@ -95,7 +95,7 @@ st.pyplot(fig1)
 st.subheader("UMAP and K-means clustering")
 st.write("For this visualization, we have used K-means and UMAP")
 
-with st.spinner('Wait for it...'):
+with st.spinner('Proccesing data and creating cluster...'):
     umap_scaler = umap.UMAP()
     embeddings = umap_scaler.fit_transform(df_scaled)
 
