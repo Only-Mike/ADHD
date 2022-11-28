@@ -171,8 +171,8 @@ with tab3:
     if st.button('Predict'):
         imp_hy_lvl = (hy_lvl+Imp_lvl)/2
         X_new = [[in_lvl, imp_hy_lvl]]
-        model.predict(X_new)
-        st.write( "ADHD index is", X_new)
+        snorre = model.predict(X_new)
+        st.write( "ADHD index is", snorre)
         if model.predict(X_new) >= 60:
             st.write('You most likely have ADHD or ADD')
 
