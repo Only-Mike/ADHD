@@ -177,7 +177,8 @@ with tab3:
         st.write( "ADHD index is", X_new)
     elif model.predict(X_new) >= 60:
         st.write('You most likely have ADHD or ADD')
-    elif st.write('you dont have ADHD'):
+    else: 
+        st.write('you dont have ADHD')
 
 
 with tab4:
