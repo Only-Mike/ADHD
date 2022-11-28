@@ -11,6 +11,7 @@ from matplotlib import rcParams
 import plotly.express as px
 from tqdm import tqdm
 import preprocessor as prepro # text prepro
+import itertools
 
 import spacy #spacy for quick language prepro
 nlp = spacy.load('en_core_web_sm') #instantiating English module
@@ -26,7 +27,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer #transforms text to 
 from sklearn.linear_model import LogisticRegression #Logit model
 from sklearn.metrics import classification_report #that's self explanatory
 from sklearn.decomposition import TruncatedSVD #dimensionality reduction
+from sklearn.preprocessing import StandardScaler #Scaler
 from xgboost import XGBClassifier
+import umap 
+
 
 import altair as alt #viz
 
