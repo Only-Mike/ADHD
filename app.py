@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import seaborn as sns; sns.set
 import plotly.express as px
+import altair as alt
 from tqdm import tqdm
 import preprocessor as prepro # text prepro
 import itertools
@@ -28,6 +29,7 @@ from sklearn.linear_model import LogisticRegression #Logit model
 from sklearn.metrics import classification_report #that's self explanatory
 from sklearn.decomposition import TruncatedSVD #dimensionality reduction
 from sklearn.preprocessing import StandardScaler #Scaler
+from sklearn.decomposition import PCA
 from xgboost import XGBClassifier
 import umap 
 
@@ -47,6 +49,8 @@ from gensim.models import LdaMulticore # we'll use the faster multicore version 
 import pyLDAvis
 import pyLDAvis.gensim_models as gensimvis
 
+
+#Title and subheader
 st.title("ADHD🧠")
 st.subheader("This app is made by Snorre and Mike")
 st.write("Before diving into this app, we highly recommend (if you don't know what it is already) diving into what ADHD is")
@@ -176,15 +180,13 @@ with tab5:
                 x="Age",
                 kind="kde")
 
-    #import at initialize PCA
-    from sklearn.decomposition import PCA
+    #initialize PCA
     pca = PCA(n_components=2)
 
     # fit and transform the data
     df_reduced_pca = pca.fit_transform(df_scaled)
 
     #Reduced data chart
-    import altair as alt
     vis_data = pd.DataFrame(df_reduced_pca)
     vis_data['Age'] = df['Age']
     vis_data['ADHD Index'] = df['ADHD Index']
