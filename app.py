@@ -64,41 +64,41 @@ st.video(vidurl, format="video/mp4", start_time=0 )
 
 
 @st.experimental_singleton
-def read_process_data():
-    #"""In this section we clean the data"""
-    #read in dataset
-    df = pd.read_csv('datasets/KKI_phenotypic.csv')
 
-    #dropping unrelevant columns
-    df = df.drop(columns = ['Site', 'ADHD Measure', 'IQ Measure', 'Full2 IQ', 'QC_Rest_1', 'QC_Rest_2', 'QC_Rest_3', 'QC_Rest_4', 'QC_Anatomical_1', 'QC_Anatomical_2'])
+#"""In this section we clean the data"""
+#read in dataset
+df = pd.read_csv('datasets/KKI_phenotypic.csv')
 
-    #Round age for fewer unique values and making into integer
-    df['Age'] = df['Age'].round(decimals = 0)
-    df['Age'] = df['Age'].astype(int)
+#dropping unrelevant columns
+df = df.drop(columns = ['Site', 'ADHD Measure', 'IQ Measure', 'Full2 IQ', 'QC_Rest_1', 'QC_Rest_2', 'QC_Rest_3', 'QC_Rest_4', 'QC_Anatomical_1', 'QC_Anatomical_2'])
 
-    #Making gender from 0 and 1 to Female and Male
-    df['Gender'].replace(('1', '0'), ("Male", "Female"), inplace=True)
+#Round age for fewer unique values and making into integer
+df['Age'] = df['Age'].round(decimals = 0)
+df['Age'] = df['Age'].astype(int)
 
-    #Removes rows with -999 in the following columns
-    df = df[df['Inattentive'] != -999]
-    df = df[df['Hyper/Impulsive'] != -999]
-    df = df[df['ADHD Index'] != -999]
+#Making gender from 0 and 1 to Female and Male
+df['Gender'].replace(('1', '0'), ("Male", "Female"), inplace=True)
 
-    #Making none secondary dx into 0 and any secondary dx into 1
-    df['Secondary Dx '].replace(('Simple phobia', 'Simple Phobia', 'simple phobias', 'ODD', 'Simple Phobia ', 'ODD; Phobia', 'Specific phobia', 'Phobia', 'social and simple phobia '), (1, 1, 1, 1, 1, 1, 1, 1, 1), inplace=True)
-    df['Secondary Dx '] = df['Secondary Dx '].fillna(0).astype(int)
+#Removes rows with -999 in the following columns
+df = df[df['Inattentive'] != -999]
+df = df[df['Hyper/Impulsive'] != -999]
+df = df[df['ADHD Index'] != -999]
 
-    #import Synthetic data creator SDV
-    from sdv.tabular import GaussianCopula
-    model = GaussianCopula()
-    model.fit(df)
+#Making none secondary dx into 0 and any secondary dx into 1
+df['Secondary Dx '].replace(('Simple phobia', 'Simple Phobia', 'simple phobias', 'ODD', 'Simple Phobia ', 'ODD; Phobia', 'Specific phobia', 'Phobia', 'social and simple phobia '), (1, 1, 1, 1, 1, 1, 1, 1, 1), inplace=True)
+df['Secondary Dx '] = df['Secondary Dx '].fillna(0).astype(int)
 
-    #Creating the synthetic data
-    synthetic_data = model.sample(500)
-    synthetic_data.head()
+#import Synthetic data creator SDV
+from sdv.tabular import GaussianCopula
+model = GaussianCopula()
+model.fit(df)
 
-    #Combining the two datasets
-    df = pd.concat([synthetic_data, df])
+#Creating the synthetic data
+synthetic_data = model.sample(500)
+synthetic_data.head()
+
+#Combining the two datasets
+df = pd.concat([synthetic_data, df])
 
 
 #"""Visualizing the app"""
