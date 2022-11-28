@@ -158,7 +158,7 @@ with tab3:
     #Define X and y
     X = df[["Inattentive", "Hyper/Impulsive"]].values
     y = df["ADHD Index"]
-    
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
     model = LinearRegression()
 
     model.fit(X_train, y_train)
