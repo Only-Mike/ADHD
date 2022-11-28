@@ -99,33 +99,41 @@ synthetic_data.head()
 df = pd.concat([synthetic_data, df])
 
 
-
-
 #"""Visualizing the app"""
 st.subheader("In this section you can play around with the data avaible to us")
 st.write("Note: As the dataset we have used didn't have many entries and was limited to age, we have used something called SDV to synthetise some more data. This means it has created data from itself and therefore better visualtions. BUT this also means the data isn't 100% true to real life until more data is avaible")
 st.write("If you have ADHD or ADD you can help us get more data by answering these questions")
 st.caption("Link will come soon", unsafe_allow_html=True)
 
+#Tabs 
+tab1, tab2, tab3, tab4 = st.tabs(["Introduction", "Gender and fatality", "Attacks around the world", "Activities and year"])
 
-#sliders
-Age_selected = st.slider("Select Age", min_value = int(df.Age.min()), max_value= int(df.Age.max()), value = (0,100), step=1)
-df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
+with tab1
+    st.header("Introduction to this app")
+    st.subheader("More is coming soon")
 
-#filter for country - set to a sidebar
-st.sidebar.title("Gender ♂️♀️")
-gender_select = st.sidebar.multiselect("Select Gender ♂️♀️", ("Female", "Male"))
+with tab2
+    st.header("Age and ADHD")
+    st.subheader("Still WIP")
 
-df = df[df.Gender.isin(gender_select)]
+    #sliders
+    Age_selected = st.slider("Select Age", min_value = int(df.Age.min()), max_value= int(df.Age.max()), value = (0,100), step=1)
+    df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
 
-#line chart for age vs gender
-c = alt.Chart(df).mark_circle().encode(
+    #filter for country - set to a sidebar
+    st.sidebar.title("Gender ♂️♀️")
+    gender_select = st.sidebar.multiselect("Select Gender ♂️♀️", ("Female", "Male"))
+
+    df = df[df.Gender.isin(gender_select)]
+
+    #line chart for age vs gender
+    c = alt.Chart(df).mark_circle().encode(
     
-    alt.X('Age:N',axis=alt.Axis(values=["Age_selected"]),
+        alt.X('Age:N',axis=alt.Axis(values=["Age_selected"]),
         scale=alt.Scale(zero=False),
-    ),
-    y='ADHD Index',
-    color=alt.value("Gender"),
-    tooltip=['Age:N', 'Gender', 'ADHD Index'])
+        ),
+        y='ADHD Index',
+        color=alt.value("Gender"),
+        tooltip=['Age:N', 'Gender', 'ADHD Index'])
 
-st.altair_chart(c, use_container_width=True)
+    st.altair_chart(c, use_container_width=True)
