@@ -63,8 +63,6 @@ vidurl = st.selectbox(
 st.video(vidurl, format="video/mp4", start_time=0 )
 
 
-@st.experimental_singleton
-
 #"""In this section we clean the data"""
 #read in dataset
 df = pd.read_csv('datasets/KKI_phenotypic.csv')

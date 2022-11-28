@@ -12,8 +12,6 @@ st.title("ADHD Clustering")
 st.subheader("This app is made by Snorre and Mike")
 st.write("ADHD \n Something about ADHD clustering")
 
-@st.experimental_singleton
-
 #read in dataset
 df = pd.read_csv('datasets/KKI_phenotypic.csv')
 
