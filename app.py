@@ -171,10 +171,12 @@ with tab3:
     if st.button('Predict'):
         imp_hy_lvl = (hy_lvl+Imp_lvl)/2
         X_new = [[in_lvl, imp_hy_lvl]]
-        snorre = model.predict(X_new)
-        st.write( "ADHD index is", snorre)
+        adhd_output_index = model.predict(X_new) * 10
+        st.write( "ADHD index is", adhd_output_index)
         if model.predict(X_new) >= 60:
             st.write('You most likely have ADHD or ADD')
+        else:
+            st.write('You most likely dont have ADHD or ADD')
 
 
 with tab4:
