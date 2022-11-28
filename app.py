@@ -142,8 +142,12 @@ with tab2:
     st.altair_chart(c, use_container_width=True)
 
 with tab3:
+    st.title("Predictor - Do you have ADHD?")
+    st.subheader("This app is made by Snorre and Mike")
 
 with tab4:
+    st.title("Topic Modeling")
+    st.subheader("This app is made by Snorre and Mike")
 
 with tab5:
     st.title("ADHD Clustering")
