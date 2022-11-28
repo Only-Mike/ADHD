@@ -156,32 +156,32 @@ with tab3:
     df = read_process_data()
 
     #Define X and y
-    X = df[["Inattentive", "Hyper/Impulsive"]].values
-    y = df["ADHD Index"]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
-    model = LinearRegression()
+    # X = df[["Inattentive", "Hyper/Impulsive"]].values
+    # y = df["ADHD Index"]
+    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
+    # model = LinearRegression()
 
-    model.fit(X_train, y_train)
+    # model.fit(X_train, y_train)
 
-    in_lvl = st.number_input(label="How would you rank your inattentive level from 1 to 10?", min_value=1, max_value=10)
-    hy_lvl = st.number_input(label="How would you rank your hyper level from 1 to 10?", min_value=1, max_value=10)
-    Imp_lvl = st.number_input(label="How would you rank your impulsive level from 1 to 10?", min_value=1, max_value=10)
+    # in_lvl = st.number_input(label="How would you rank your inattentive level from 1 to 10?", min_value=1, max_value=10)
+    # hy_lvl = st.number_input(label="How would you rank your hyper level from 1 to 10?", min_value=1, max_value=10)
+    # Imp_lvl = st.number_input(label="How would you rank your impulsive level from 1 to 10?", min_value=1, max_value=10)
 
     
     
 
-    if st.button('Predict'):
-        imp_hy_lvl = (hy_lvl+Imp_lvl)/2
-        X_new = [[in_lvl, imp_hy_lvl]]
-        model.predict(X_new)
-        st.write( "ADHD index is", X_new)
-    else: 
-        st.write("Put in a number")
-    
-    if model.predict(X_new) >= 60:
-        st.write('You most likely have ADHD or ADD')
-    else: 
-        st.write('you dont have ADHD')
+    # if st.button('Predict'):
+    #     imp_hy_lvl = (hy_lvl+Imp_lvl)/2
+    #     X_new = [[in_lvl, imp_hy_lvl]]
+    #     model.predict(X_new)
+    #     st.write( "ADHD index is", X_new)
+    # else: 
+    #     st.write("Put in a number")
+
+    # if model.predict(X_new) >= 60:
+    #     st.write('You most likely have ADHD or ADD')
+    # else: 
+    #     st.write('you dont have ADHD')
 
 
 with tab4:
