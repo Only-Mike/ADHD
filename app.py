@@ -155,7 +155,7 @@ with tab3:
     st.subheader("This app is made by Snorre and Mike")
     df = read_process_data()
 
-    Define X and y
+    #Define X and y
     X = df[["Inattentive", "Hyper/Impulsive"]].values
     y = df["ADHD Index"]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
