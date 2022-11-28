@@ -169,9 +169,7 @@ with tab5:
     df_scaled = scaler.fit_transform(df)
 
     #Age pre-scaling
-    sns.displot(data=df, 
-                x="Age", 
-                kind="kde")
+    sns.displot(data=df, x="Age", kind="kde")
 
     #Age post-scaling
     sns.displot(data=pd.DataFrame(df_scaled, columns=df.columns), 
