@@ -62,6 +62,7 @@ vidurl = st.selectbox(
 )
 st.video(vidurl, format="video/mp4", start_time=0 )
 
+
 @st.experimental_singleton
 def read_process_data():
     #"""In this section we clean the data"""
