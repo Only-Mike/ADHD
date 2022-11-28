@@ -106,13 +106,13 @@ st.write("If you have ADHD or ADD you can help us get more data by answering the
 st.caption("Link will come soon", unsafe_allow_html=True)
 
 #Tabs 
-tab1, tab2, tab3, tab4 = st.tabs(["Introduction", "Gender and fatality", "Attacks around the world", "Activities and year"])
+tab1, tab2, tab3, tab4 = st.tabs(["Introduction", "Age and ADHD"])
 
-with tab1
+with tab1:
     st.header("Introduction to this app")
     st.subheader("More is coming soon")
 
-with tab2
+with tab2:
     st.header("Age and ADHD")
     st.subheader("Still WIP")
 
