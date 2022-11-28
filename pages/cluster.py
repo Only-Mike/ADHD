@@ -95,65 +95,65 @@ st.pyplot(fig1)
 st.subheader("UMAP and K-means clustering")
 st.write("For this visualization, we have used K-means and UMAP")
 
-umap_scaler = umap.UMAP()
-embeddings = umap_scaler.fit_transform(df_scaled)
-
-#Clearly there is some difference between people with a secondary dianosis and those without
-#fig2 = rcParams['figure.figsize'] = 15,10
-#sns.scatterplot(embeddings[:,0],embeddings[:,1], color = df['Secondary Dx '])
-#st.pyplot(fig2)
-
-
-#K-means clustering
-from sklearn.cluster import KMeans
-
-#def cluster_umap_kmeans
-
-clusterer = KMeans(n_clusters=3)
-
-Sum_of_squared_distances = []
-K = range(1,10)
-for k in K:
-    km = KMeans(n_clusters=k)
-    km = km.fit(df_scaled)
-    Sum_of_squared_distances.append(km.inertia_)
-
-#Umap scaler 
-umap_scaler_km = umap.UMAP(n_components=3)
-embeddings_km = umap_scaler.fit_transform(df_scaled)
-
-
-Sum_of_squared_distances = []
-K = range(1,10)
-for k in K:
-    km = KMeans(n_clusters=k)
-    km = km.fit(embeddings_km)
-    Sum_of_squared_distances.append(km.inertia_)
-
-
-clusterer.fit(df_scaled)
-df['cluster'] = clusterer.labels_
-df.groupby('cluster').Inattentive.mean()
-
-
-vis_data1 = pd.DataFrame(embeddings)
-vis_data1['Gender'] = df['Gender']
-vis_data1['cluster'] = df['cluster']
-vis_data1['Secondary Dx '] = df['Secondary Dx ']
-vis_data1.columns = ['x', 'y', 'Gender', 'cluster','Secondary Dx ']
-
-
-
-c1 = alt.Chart(vis_data1).mark_circle(size=60).encode(
-    x='x',
-    y='y',
-    tooltip=['Gender', 'Secondary Dx '],
-    color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2'))
-).interactive()
-
-st.altair_chart(c1, use_container_width=True)
-
-
-#wrap up 
 with st.spinner('Wait for it...'):
+    umap_scaler = umap.UMAP()
+    embeddings = umap_scaler.fit_transform(df_scaled)
+
+    #Clearly there is some difference between people with a secondary dianosis and those without
+    #fig2 = rcParams['figure.figsize'] = 15,10
+    #sns.scatterplot(embeddings[:,0],embeddings[:,1], color = df['Secondary Dx '])
+    #st.pyplot(fig2)
+
+
+    #K-means clustering
+    from sklearn.cluster import KMeans
+
+    #def cluster_umap_kmeans
+
+    clusterer = KMeans(n_clusters=3)
+
+    Sum_of_squared_distances = []
+    K = range(1,10)
+    for k in K:
+        km = KMeans(n_clusters=k)
+        km = km.fit(df_scaled)
+        Sum_of_squared_distances.append(km.inertia_)
+
+    #Umap scaler 
+    umap_scaler_km = umap.UMAP(n_components=3)
+    embeddings_km = umap_scaler.fit_transform(df_scaled)
+
+
+    Sum_of_squared_distances = []
+    K = range(1,10)
+    for k in K:
+        km = KMeans(n_clusters=k)
+        km = km.fit(embeddings_km)
+        Sum_of_squared_distances.append(km.inertia_)
+
+
+    clusterer.fit(df_scaled)
+    df['cluster'] = clusterer.labels_
+    df.groupby('cluster').Inattentive.mean()
+
+
+    vis_data1 = pd.DataFrame(embeddings)
+    vis_data1['Gender'] = df['Gender']
+    vis_data1['cluster'] = df['cluster']
+    vis_data1['Secondary Dx '] = df['Secondary Dx ']
+    vis_data1.columns = ['x', 'y', 'Gender', 'cluster','Secondary Dx ']
+
+
+
+    c1 = alt.Chart(vis_data1).mark_circle(size=60).encode(
+        x='x',
+        y='y',
+        tooltip=['Gender', 'Secondary Dx '],
+        color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2'))
+    ).interactive()
+
+    st.altair_chart(c1, use_container_width=True)
+
+
+    #wrap up 
 st.success('Done!')
