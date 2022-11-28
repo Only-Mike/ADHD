@@ -109,7 +109,7 @@ st.write("If you have ADHD or ADD you can help us get more data by answering the
 st.caption("Link will come soon", unsafe_allow_html=True)
 
 #Tabs 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Introduction", "Age and ADHD", "Predictor - Do you have ADHD?", "Topic Modeling", "Links to websites regarding ADHD"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Introduction", "Age and ADHD", "Predictor - Do you have ADHD?", "Topic Modeling", "ADHD Clusters"])
 
 with tab1:
     st.header("Introduction to this app")
@@ -140,3 +140,129 @@ with tab2:
         tooltip=['Age:N', 'Gender', 'ADHD Index'])
 
     st.altair_chart(c, use_container_width=True)
+
+with tab3:
+
+with tab4:
+
+with tab5:
+    st.title("ADHD Clustering")
+    st.subheader("This app is made by Snorre and Mike")
+    st.write("ADHD \n Something about ADHD clustering")
+    df = read_process_data()
+
+
+    #We will scale the data which requires the following tool
+    scaler = StandardScaler()
+
+    df = df.loc[~df.index.duplicated(), :]
+
+    # with the scaler.fit_transfor we learn x-y relationships and transform the data.
+    df_scaled = scaler.fit_transform(df)
+
+    #Age pre-scaling
+    sns.displot(data=df, 
+                x="Age", 
+                kind="kde")
+
+    #Age post-scaling
+    sns.displot(data=pd.DataFrame(df_scaled, columns=df.columns), 
+                x="Age",
+                kind="kde")
+
+    #import at initialize PCA
+    from sklearn.decomposition import PCA
+    pca = PCA(n_components=2)
+
+    # fit and transform the data
+    df_reduced_pca = pca.fit_transform(df_scaled)
+
+    #Reduced data chart
+    import altair as alt
+    vis_data = pd.DataFrame(df_reduced_pca)
+    vis_data['Age'] = df['Age']
+    vis_data['ADHD Index'] = df['ADHD Index']
+    vis_data.columns = ['x', 'y', 'Age', 'ADHD Index']
+
+    chart_data = pd.DataFrame(vis_data)
+
+    c = alt.Chart(chart_data).mark_circle().encode(
+        x='Age', y='ADHD Index', size='ADHD Index', color='Age', tooltip=['Age', 'ADHD Index'])
+
+    st.altair_chart(c, use_container_width=True)
+
+    st.subheader("Correlation heatmap")
+    st.write("This shows the correlation between different values in the dataset")
+
+    #Correlation heatmap
+    fig1 = plt.figure(figsize=(18,2))
+    sns.heatmap(pd.DataFrame(pca.components_, columns=df.columns), annot=True)
+    st.pyplot(fig1)
+
+
+
+    st.subheader("UMAP and K-means clustering")
+    st.write("For this visualization, we have used K-means and UMAP")
+
+    with st.spinner('Proccesing data and creating cluster...'):
+        umap_scaler = umap.UMAP()
+        embeddings = umap_scaler.fit_transform(df_scaled)
+
+        #Clearly there is some difference between people with a secondary dianosis and those without
+        #fig2 = rcParams['figure.figsize'] = 15,10
+        #sns.scatterplot(embeddings[:,0],embeddings[:,1], color = df['Secondary Dx '])
+        #st.pyplot(fig2)
+
+
+        #K-means clustering
+        from sklearn.cluster import KMeans
+
+        #def cluster_umap_kmeans
+
+        clusterer = KMeans(n_clusters=3)
+
+        Sum_of_squared_distances = []
+        K = range(1,10)
+        for k in K:
+            km = KMeans(n_clusters=k)
+            km = km.fit(df_scaled)
+            Sum_of_squared_distances.append(km.inertia_)
+
+        #Umap scaler 
+        umap_scaler_km = umap.UMAP(n_components=3)
+        embeddings_km = umap_scaler.fit_transform(df_scaled)
+
+
+        Sum_of_squared_distances = []
+        K = range(1,10)
+        for k in K:
+            km = KMeans(n_clusters=k)
+            km = km.fit(embeddings_km)
+            Sum_of_squared_distances.append(km.inertia_)
+
+
+        clusterer.fit(df_scaled)
+        df['cluster'] = clusterer.labels_
+        df.groupby('cluster').Inattentive.mean()
+
+
+        vis_data1 = pd.DataFrame(embeddings)
+        vis_data1['Gender'] = df['Gender']
+        vis_data1['cluster'] = df['cluster']
+        vis_data1['Secondary Dx '] = df['Secondary Dx ']
+        vis_data1.columns = ['x', 'y', 'Gender', 'cluster','Secondary Dx ']
+
+
+
+        c1 = alt.Chart(vis_data1).mark_circle(size=60).encode(
+            x='x',
+            y='y',
+            tooltip=['Gender', 'Secondary Dx '],
+            color=alt.Color('cluster:N', scale=alt.Scale(scheme='dark2'))
+        ).interactive()
+
+        st.altair_chart(c1, use_container_width=True)
+
+
+        #wrap up 
+    st.success('Done!')
