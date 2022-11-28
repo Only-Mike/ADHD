@@ -26,6 +26,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline #pipeline creation
 from sklearn.feature_extraction.text import TfidfVectorizer #transforms text to sparse matrix
 from sklearn.linear_model import LogisticRegression #Logit model
+from sklearn.linear_model import LinearRegression
 from sklearn.metrics import classification_report #that's self explanatory
 from sklearn.decomposition import TruncatedSVD #dimensionality reduction
 from sklearn.preprocessing import StandardScaler #Scaler
@@ -152,10 +153,12 @@ with tab2:
 with tab3:
     st.title("Predictor - Do you have ADHD?")
     st.subheader("This app is made by Snorre and Mike")
+    df = read_process_data()
 
 with tab4:
     st.title("Topic Modeling")
     st.subheader("This app is made by Snorre and Mike")
+    df = read_process_data()
 
 with tab5:
     st.title("ADHD Clustering")
