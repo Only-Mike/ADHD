@@ -175,8 +175,7 @@ with tab3:
         adhd_output_index = model.predict(X_new) * 10
         st.write( "ADHD index is", adhd_output_index)
         
-    if st.button('Show result'):
-        model.predict(adhd_output_index) >= 40
+    if model.predict(adhd_output_index) >= 40:
         st.write('You might have ADHD or ADD')
     else:
         st.write('You most likely dont have ADHD or ADD')
