@@ -220,7 +220,7 @@ with tab4:
     def text_prepro(texts):
         texts_clean = texts.map(lambda t: prepro.clean(t))
         clean_container = []
-        pbar = stqdm.stqdm(total=len(texts_clean),position=0, leave=True)
+        pbar = stqdm(total=len(texts_clean),position=0, leave=True)
         for text in nlp.pipe(texts_clean, disable=["tagger", "parser", "ner"]):
             txt = [token.lemma_.lower() for token in text 
                 if token.is_alpha 
