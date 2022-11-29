@@ -102,8 +102,7 @@ def read_process_data():
     model.fit(df)
 
     #Creating the synthetic data
-    synthetic_data = model.sample(500)
-    synthetic_data.head()
+    synthetic_data = model.sample(2000)
 
     #Combining the two datasets
     df = pd.concat([synthetic_data, df])
@@ -171,8 +170,8 @@ with tab3:
 
     if st.button('Predict'):
         #imp_hy_lvl = (hy_lvl+Imp_lvl)/2
-        X_new = [[in_lvl, hy_lvl]]*10
-        adhd_output_index = model.predict(X_new)
+        X_new = [[in_lvl, hy_lvl]]
+        adhd_output_index = model.predict(X_new) *10
         st.write( "ADHD index is", adhd_output_index)
         
     if model.predict(adhd_output_index) >= 40:
