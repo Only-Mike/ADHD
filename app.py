@@ -11,7 +11,7 @@ import seaborn as sns; sns.set
 import plotly.express as px
 import altair as alt
 from tqdm import tqdm
-import preprocessor as prepro # text prepro
+import preprocessor as prepro
 import itertools
 
 import spacy #spacy for quick language prepro
