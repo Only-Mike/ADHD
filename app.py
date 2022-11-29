@@ -179,76 +179,76 @@ with tab3:
 with tab4:
     st.title("Topic Modeling")
     st.subheader("On this page you'll see the most popular topics for the last 5 years")
+    st.write('WIP')
+    # data1 = pd.read_csv('datasets/adhd2018.csv')
+    # data2 = pd.read_csv('datasets/adhd2019.csv')
+    # data3 = pd.read_csv('datasets/adhd2020.csv')
+    # data4 = pd.read_csv('datasets/adhd2021.csv')
+    # data5 = pd.read_csv('datasets/adhd2022.csv')
+    # frames = [data1, data2, data3, data4, data5] #creating frame for all datasets
+    # data = pd.concat(frames) #Concat all datasets to "df"
+
+    # # prepro settings
+    # prepro.set_options(prepro.OPT.URL, prepro.OPT.NUMBER, prepro.OPT.RESERVED, prepro.OPT.MENTION, prepro.OPT.SMILEY)
+
+    # data = data[['Authors', 'Author(s) ID','Title', 'Abstract','Year', 'Cited by']]
     
-    data1 = pd.read_csv('datasets/adhd2018.csv')
-    data2 = pd.read_csv('datasets/adhd2019.csv')
-    data3 = pd.read_csv('datasets/adhd2020.csv')
-    data4 = pd.read_csv('datasets/adhd2021.csv')
-    data5 = pd.read_csv('datasets/adhd2022.csv')
-    frames = [data1, data2, data3, data4, data5] #creating frame for all datasets
-    data = pd.concat(frames) #Concat all datasets to "df"
+    # #Take a random sample of 2500 papers. This is for making the model run faster.
+    # data = data.sample(n=2500)
 
-    # prepro settings
-    prepro.set_options(prepro.OPT.URL, prepro.OPT.NUMBER, prepro.OPT.RESERVED, prepro.OPT.MENTION, prepro.OPT.SMILEY)
+    # data['text'] = data['Abstract']
+    # #Cleaning the text
+    # data['text_clean'] = data['text'].map(lambda t: prepro.clean(t))
 
-    data = data[['Authors', 'Author(s) ID','Title', 'Abstract','Year', 'Cited by']]
+
+    # clean_text = []
+
+
+    # for text in nlp.pipe(data['text_clean'], disable=["tagger", "parser", "ner"]):
+
+    #     txt = [token.lemma_.lower() for token in text 
+    #         if token.is_alpha 
+    #         and not token.is_stop 
+    #         and not token.is_punct]
+
+    #     clean_text.append(" ".join(txt))
+
+
+    # # write everything into a single function for simplicity later on
+    # def text_prepro(texts):
+    #     texts_clean = texts.map(lambda t: prepro.clean(t))
+    #     clean_container = []
+    #     for text in nlp.pipe(texts_clean, disable=["tagger", "parser", "ner"]):
+    #         txt = [token.lemma_.lower() for token in text 
+    #             if token.is_alpha 
+    #             and not token.is_stop
+    #             and not token.is_punct]
+    #         clean_container.append(" ".join(txt))
+    #     return clean_container
     
-    #Take a random sample of 2500 papers. This is for making the model run faster.
-    data = data.sample(n=2500)
+    # data['text_clean'] = text_prepro(data['text'])
 
-    data['text'] = data['Abstract']
-    #Cleaning the text
-    data['text_clean'] = data['text'].map(lambda t: prepro.clean(t))
+    # tokens = []
+    # for summary in nlp.pipe(data['text_clean'], disable=["ner"]):
+    #     proj_tok = [token.lemma_.lower() for token in summary
+    #                 if token.pos_ in ['NOUN', 'PROPN', 'ADJ', 'ADV']
+    #                 and not token.is_stop
+    #                 and not token.is_punct]
+    #     tokens.append(proj_tok)
 
+    # data['tokens'] = tokens
 
-    clean_text = []
+    # # Create a Dictionary from the articles: dictionary
+    # dictionary = Dictionary(data['tokens'])
 
+    # # filter out low-frequency / high-frequency stuff, also limit the vocabulary to max 1000 words
+    # dictionary.filter_extremes(no_below=2, no_above=0.2, keep_n=1000)
 
-    for text in nlp.pipe(data['text_clean'], disable=["tagger", "parser", "ner"]):
-
-        txt = [token.lemma_.lower() for token in text 
-            if token.is_alpha 
-            and not token.is_stop 
-            and not token.is_punct]
-
-        clean_text.append(" ".join(txt))
-
-
-    # write everything into a single function for simplicity later on
-    def text_prepro(texts):
-        texts_clean = texts.map(lambda t: prepro.clean(t))
-        clean_container = []
-        for text in nlp.pipe(texts_clean, disable=["tagger", "parser", "ner"]):
-            txt = [token.lemma_.lower() for token in text 
-                if token.is_alpha 
-                and not token.is_stop
-                and not token.is_punct]
-            clean_container.append(" ".join(txt))
-        return clean_container
-    
-    data['text_clean'] = text_prepro(data['text'])
-
-    tokens = []
-    for summary in nlp.pipe(data['text_clean'], disable=["ner"]):
-        proj_tok = [token.lemma_.lower() for token in summary
-                    if token.pos_ in ['NOUN', 'PROPN', 'ADJ', 'ADV']
-                    and not token.is_stop
-                    and not token.is_punct]
-        tokens.append(proj_tok)
-
-    data['tokens'] = tokens
-
-    # Create a Dictionary from the articles: dictionary
-    dictionary = Dictionary(data['tokens'])
-
-    # filter out low-frequency / high-frequency stuff, also limit the vocabulary to max 1000 words
-    dictionary.filter_extremes(no_below=2, no_above=0.2, keep_n=1000)
-
-    # construct corpus using this dictionary
-    corpus = [dictionary.doc2bow(doc) for doc in data['tokens']]
-    lda_model = LdaMulticore(corpus, id2word=dictionary, num_topics=12, workers = 4, passes=10)
-    lda_display = pyLDAvis.gensim_models.prepare(lda_model, corpus, dictionary)
-    pyLDAvis.display(lda_display)
+    # # construct corpus using this dictionary
+    # corpus = [dictionary.doc2bow(doc) for doc in data['tokens']]
+    # lda_model = LdaMulticore(corpus, id2word=dictionary, num_topics=12, workers = 4, passes=10)
+    # lda_display = pyLDAvis.gensim_models.prepare(lda_model, corpus, dictionary)
+    # pyLDAvis.display(lda_display)
 
 
 with tab5:
