@@ -179,11 +179,11 @@ with tab4:
     st.title("Topic Modeling")
     st.subheader("On this page you'll see the most popular topics for the last 5 years")
     
-    data1 = pd.read_csv('Only-Mike/ADHD/datasets/adhd2018.csv')
-    data2 = pd.read_csv('Only-Mike/ADHD/datasets/adhd2019.csv')
-    data3 = pd.read_csv('Only-Mike/ADHD/datasets/adhd2020.csv')
-    data4 = pd.read_csv('Only-Mike/ADHD/datasets/adhd2021.csv')
-    data5 = pd.read_csv('Only-Mike/ADHD/datasets/adhd2022.csv')
+    data1 = pd.read_csv('datasets/adhd2018.csv')
+    data2 = pd.read_csv('datasets/adhd2019.csv')
+    data3 = pd.read_csv('datasets/adhd2020.csv')
+    data4 = pd.read_csv('datasets/adhd2021.csv')
+    data5 = pd.read_csv('datasets/adhd2022.csv')
     frames = [data1, data2, data3, data4, data5] #creating frame for all datasets
     data = pd.concat(frames) #Concat all datasets to "df"
 
