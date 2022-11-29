@@ -203,7 +203,6 @@ with tab4:
 
     clean_text = []
 
-    pbar = stqdm(total=len(data['text_clean']),position=0, leave=True)
 
     for text in nlp.pipe(data['text_clean'], disable=["tagger", "parser", "ner"]):
 
@@ -214,20 +213,17 @@ with tab4:
 
         clean_text.append(" ".join(txt))
 
-        pbar.update(1)
 
     # write everything into a single function for simplicity later on
     def text_prepro(texts):
         texts_clean = texts.map(lambda t: prepro.clean(t))
         clean_container = []
-        pbar = stqdm(total=len(texts_clean),position=0, leave=True)
         for text in nlp.pipe(texts_clean, disable=["tagger", "parser", "ner"]):
             txt = [token.lemma_.lower() for token in text 
                 if token.is_alpha 
                 and not token.is_stop
                 and not token.is_punct]
             clean_container.append(" ".join(txt))
-            pbar.update(1)
         return clean_container
     
     data['text_clean'] = text_prepro(data['text'])
