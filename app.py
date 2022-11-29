@@ -165,13 +165,13 @@ with tab3:
     model.fit(X_train, y_train)
 
     in_lvl = st.slider(label="How would you rank your inattentive level from 1 to 10?", min_value=1, max_value=10)
-    hy_lvl = st.slider(label="How would you rank your hyper level from 1 to 10?", min_value=1, max_value=10)
-    Imp_lvl = st.slider(label="How would you rank your impulsive level from 1 to 10?", min_value=1, max_value=10)
+    hy_lvl = st.slider(label="How would you rank your hyper level/impulsive from 1 to 10?", min_value=1, max_value=10)
+    #Imp_lvl = st.slider(label="How would you rank your impulsive level from 1 to 10?", min_value=1, max_value=10)
 
 
     if st.button('Predict'):
-        imp_hy_lvl = (hy_lvl+Imp_lvl)/2
-        X_new = [[in_lvl, imp_hy_lvl]]
+        #imp_hy_lvl = (hy_lvl+Imp_lvl)/2
+        X_new = [[in_lvl, hy_lvl]]
         adhd_output_index = model.predict(X_new) * 10
         st.write( "ADHD index is", adhd_output_index)
         if model.predict(adhd_output_index) >= 60:
