@@ -15,8 +15,8 @@ from stqdm.stqdm import stqdm
 import preprocessor as prepro
 import itertools
 
-import spacy #spacy for quick language prepro
-nlp = spacy.load('en_core_web_sm') #instantiating English module
+#import spacy #spacy for quick language prepro
+#nlp = spacy.load('en_core_web_sm') #instantiating English module
 
 # sampling, splitting
 from imblearn.under_sampling import RandomUnderSampler
