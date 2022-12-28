@@ -166,13 +166,14 @@ with tab3:
 
     in_lvl = st.slider(label="How would you rank your inattentive level from 1 to 10?", min_value=1, max_value=10)
     hy_lvl = st.slider(label="How would you rank your hyper level/impulsive from 1 to 10?", min_value=1, max_value=10)
-    Sdx = st.slider(label="Do you have other diagnosis? Yes = 1, No = 0", min_value=0, max_value=1)
+    Sdx = st.slider(label="Do you have another diagnosis? Yes = 1, No = 0", min_value=0, max_value=1)
     #Imp_lvl = st.slider(label="How would you rank your impulsive level from 1 to 10?", min_value=1, max_value=10)
 
 
     if st.button('Predict'):
-        in_hy_lvl = (hy_lvl+on_lvl)*10
-        X_new = [[in_hy_lvl, Sdx]]
+        in_lvl = in_lvl*10
+        hy_lvl = hy_lvl*10
+        X_new = [[in_lvl, hy_lvl, Sdx]]
         adhd_output_index = model.predict(X_new) *10
         st.write( "ADHD index is", adhd_output_index)
 
