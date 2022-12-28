@@ -153,7 +153,7 @@ with tab2:
 with tab3:
     st.title("Predictor - Do you have ADHD?")
     st.subheader("Try out our ADHD predictor!")
-    st.write("NB: This is not a real medicaltest, just a test")
+    st.write("NB: This is not a real medical test, just a test for fun")
     df = read_process_data()
 
     #Define X and y
