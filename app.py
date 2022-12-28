@@ -174,7 +174,7 @@ with tab3:
         in_lvl = in_lvl*10
         hy_lvl = hy_lvl*10
         X_new = [[in_lvl, hy_lvl, Sdx]]
-        adhd_output_index = model.predict(X_new) *10
+        adhd_output_index = model.predict(X_new)
         st.write( "ADHD index is", adhd_output_index)
 
 
