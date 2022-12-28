@@ -169,7 +169,7 @@ with tab3:
     Sdx = st.slider(label="Do you have another diagnosis? Yes = 1, No = 0", min_value=0, max_value=1)
     Gd = st.slider(label="What is your gender? Female = 1, Male = 0", min_value=0, max_value=1)
     Age = st.slider(label="What is your age?", min_value=0, max_value=100)
-    Hd = st.slider (label = "Which one is your dominant hand? Left = 0, Right = 1, Both = 2")
+    Hd = st.slider (label = "Which one is your dominant hand? Left = 0, Right = 1, Both = 2", min_value=0, max_value=2)
     #Imp_lvl = st.slider(label="How would you rank your impulsive level from 1 to 10?", min_value=1, max_value=10)
 
 
