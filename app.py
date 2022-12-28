@@ -171,8 +171,8 @@ with tab3:
 
 
     if st.button('Predict'):
-        #imp_hy_lvl = (hy_lvl+Imp_lvl)/2
-        X_new = [[in_lvl, hy_lvl, Sdx]]
+        in_hy_lvl = (hy_lvl+on_lvl)*10
+        X_new = [[in_hy_lvl, Sdx]]
         adhd_output_index = model.predict(X_new) *10
         st.write( "ADHD index is", adhd_output_index)
 
