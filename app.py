@@ -157,7 +157,7 @@ with tab3:
     df = read_process_data()
 
     #Define X and y
-    X = df[["Inattentive", "Hyper/Impulsive"]].values
+    X = df[["Inattentive", "Hyper/Impulsive", "Secondary Dx ", "Gender", "Age", "Handedness"]].values
     y = df["ADHD Index"]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
     model = LinearRegression()
@@ -166,6 +166,7 @@ with tab3:
 
     in_lvl = st.slider(label="How would you rank your inattentive level from 1 to 10?", min_value=1, max_value=10)
     hy_lvl = st.slider(label="How would you rank your hyper level/impulsive from 1 to 10?", min_value=1, max_value=10)
+    Sdx = st.slider(label="Do you have other diagnosis? Yes = 1, No = 0", min_value=0, max_value=1)
     #Imp_lvl = st.slider(label="How would you rank your impulsive level from 1 to 10?", min_value=1, max_value=10)
 
 
