@@ -149,7 +149,7 @@ with tab2:
         color="ADHD Index",
         tooltip=['Age:N', 'Gender', 'ADHD Index'])
 
-    st.altair_chart(c, use_container_width=True)
+    st.altair_chart(c, use_container_width=True, theme="streamlit")
 
 with tab3:
     st.title("Predictor - Do you have ADHD?")
