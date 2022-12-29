@@ -19,7 +19,6 @@ import itertools
 # sampling, splitting
 from sklearn.model_selection import train_test_split
 
-
 # loading ML libraries
 from sklearn.pipeline import make_pipeline #pipeline creation
 from sklearn.linear_model import LinearRegression
@@ -27,23 +26,15 @@ from sklearn.preprocessing import StandardScaler #Scaler
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.decomposition import PCA
 import umap 
-
-
 import altair as alt #viz
 
-#explainability
-import eli5
-from eli5.lime import TextExplainer
-
 # topic modeling
-
 from gensim.corpora.dictionary import Dictionary # Import the dictionary builder
 from gensim.models import LdaMulticore # we'll use the faster multicore version of LDA
 
 #Import pyLDAvis
 import pyLDAvis
 import pyLDAvis.gensim_models as gensimvis
-
 
 #Title and subheader
 st.title("ADHD🧠")
@@ -168,8 +159,8 @@ with tab3:
 
     in_lvl = st.slider(label="How would you rank your inattentive level from 1 to 10?", min_value=1, max_value=10)
     hy_lvl = st.slider(label="How would you rank your hyper level/impulsive from 1 to 10?", min_value=1, max_value=10)
-    Sdx = st.slider(label="Do you have another diagnosis? Yes = 1, No = 0", min_value=0, max_value=1)
-    Gd = st.slider(label="What is your gender? Female = 1, Male = 0", min_value=0, max_value=1)
+    Sdx = st.slider(label="Do you have another diagnosis? No = 0, Yes = 1", min_value=0, max_value=1)
+    Gd = st.slider(label="What is your gender? Male = 0, female = 1", min_value=0, max_value=1)
     Age = st.slider(label="What is your age?", min_value=0, max_value=100)
     Hd = st.slider (label = "Which one is your dominant hand? Left = 0, Right = 1, Both = 2", min_value=0, max_value=2)
 
