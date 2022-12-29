@@ -135,7 +135,7 @@ with tab2:
 
     #filter for country - set to a sidebar
     st.sidebar.title("Gender ♂️♀️")
-    gender_select = st.sidebar.multiselect("Select Gender ♂️♀️", ("Female", "Male"))
+    gender_select = st.sidebar.multiselect("Select Gender ♂️♀️", (0, 1))
 
     df = df[df.Gender.isin(gender_select)]
 
