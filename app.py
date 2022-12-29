@@ -134,8 +134,12 @@ with tab2:
     df = df[(df.Age > Age_selected[0]) & (df.Age < Age_selected[1])]
 
     #filter for country - set to a sidebar
-    st.sidebar.title("Gender ♂️♀️")
-    gender_select = st.sidebar.multiselect("Select Gender ♂️♀️", (0, 1))
+    #st.sidebar.title("Gender ♂️♀️")
+    #gender_select = st.sidebar.multiselect("Select Gender ♂️♀️", (0, 1))
+
+    gender_select = st.radio(
+    "What gender?",
+    (0, 1,))
 
     df = df[df.Gender.isin(gender_select)]
 
