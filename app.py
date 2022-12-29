@@ -156,6 +156,11 @@ with tab3:
     st.write("NB: This is not a real medical test, just a test for fun")
     df = read_process_data()
 
+    # Scale df
+    scaler = MinMaxScaler()
+    scaler.fit(df)
+    scaler.transform(df)
+
     #Define X and y
     X = df[["Inattentive", "Hyper/Impulsive", "Secondary Dx ", "Gender", "Age", "Handedness"]].values
     y = df["ADHD Index"]
@@ -259,7 +264,7 @@ with tab4:
 with tab5:
     st.title("ADHD Clustering")
     st.subheader("This app is made by Snorre and Mike")
-    st.write("ADHD \n Something about ADHD clustering")
+    st.write("Something about ADHD clustering")
     df = read_process_data()
 
 
@@ -270,14 +275,6 @@ with tab5:
 
     # with the scaler.fit_transfor we learn x-y relationships and transform the data.
     df_scaled = scaler.fit_transform(df)
-
-    #Age pre-scaling
-    sns.displot(data=df, x="Age", kind="kde")
-
-    #Age post-scaling
-    sns.displot(data=pd.DataFrame(df_scaled, columns=df.columns), 
-                x="Age",
-                kind="kde")
 
     #initialize PCA
     pca = PCA(n_components=2)
