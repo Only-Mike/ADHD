@@ -31,6 +31,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import classification_report #that's self explanatory
 from sklearn.decomposition import TruncatedSVD #dimensionality reduction
 from sklearn.preprocessing import StandardScaler #Scaler
+from sklearn.preprocessing import MinMaxScaler
 from sklearn.decomposition import PCA
 from xgboost import XGBClassifier
 import umap 
