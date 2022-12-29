@@ -297,7 +297,7 @@ with tab5:
     #Correlation heatmap
     fig1 = plt.figure(figsize=(18,2))
     sns.heatmap(pd.DataFrame(pca.components_, columns=df.columns), annot=True)
-    st.pyplot(fig1)
+    st.pyplot(fig1, set_theme = "streamlit")
 
 
 
@@ -307,12 +307,6 @@ with tab5:
     with st.spinner('Proccesing data and creating cluster...'):
         umap_scaler = umap.UMAP()
         embeddings = umap_scaler.fit_transform(df_scaled)
-
-        #Clearly there is some difference between people with a secondary dianosis and those without
-        #fig2 = rcParams['figure.figsize'] = 15,10
-        #sns.scatterplot(embeddings[:,0],embeddings[:,1], color = df['Secondary Dx '])
-        #st.pyplot(fig2)
-
 
         #K-means clustering
         from sklearn.cluster import KMeans
