@@ -176,7 +176,6 @@ with tab3:
     Gd = st.slider(label="What is your gender? Female = 1, Male = 0", min_value=0, max_value=1)
     Age = st.slider(label="What is your age?", min_value=0, max_value=100)
     Hd = st.slider (label = "Which one is your dominant hand? Left = 0, Right = 1, Both = 2", min_value=0, max_value=2)
-    #Imp_lvl = st.slider(label="How would you rank your impulsive level from 1 to 10?", min_value=1, max_value=10)
 
 
     if st.button('Predict'):
@@ -264,8 +263,8 @@ with tab4:
 
 with tab5:
     st.title("ADHD Clustering")
-    st.subheader("This app is made by Snorre and Mike")
-    st.write("Something about ADHD clustering")
+    st.subheader("For vizualizing different segments and possible differentation in the users, a clustering algorithm will be used.")
+    st.write(" ")
     df = read_process_data()
 
 
