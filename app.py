@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
-import seaborn as sns; sns.set
+import seaborn as sns #; sns.set
 import plotly.express as px
 import altair as alt
 import preprocessor as prepro
@@ -121,7 +121,7 @@ with tab2:
     #gender_select = st.sidebar.multiselect("Select Gender ♂️♀️", (0, 1))
 
     gender_select = st.radio(
-    "What gender?",
+    "What gender? 0 = Male and 1 = Female",
     (0, 1,))
 
     #df = df[df.Gender.isin(gender_select)]
