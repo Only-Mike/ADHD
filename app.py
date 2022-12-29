@@ -102,13 +102,14 @@ st.write("If you have ADHD or ADD you can help us get more data by answering the
 st.caption("Link will come soon", unsafe_allow_html=True)
 
 #Tabs 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Introduction🔰", "Age and ADHD 🧒", "Predictor - Do you have ADHD?🤯", "Topic Modeling📃", "ADHD Clusters🔍"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Introduction🔰", "Age and ADHD 🧒", "Predictor - Test your ADHD index🤯", "Topic Modeling📃", "ADHD Clusters🔍"])
 
 with tab1:
     st.header("Introduction to this app")
-    st.write("This application has been developed as an addition to a semester project on Business Data Science at Aalborg University Business School.")
-    st.write("All models are build on a dataset called ADHD 200, which consists of subjects diagnosed with ADHD and several relevant parameters for ADHD.")
-    st.write("If you click on the tabs next to 'Introduction' tab, you can see some graphs of those models or even test out your own ADHD index.")
+    st.write("This application has been developed as an addition to a semester project on Business Data Science at Aalborg University Business School. The project was made in collaboration with ADHD Flow")
+    st.write("All models, except the topic modelling, are build on a dataset called ADHD 200, which consists of subjects diagnosed with ADHD and several relevant parameters for ADHD.\
+    The topic modelling is build on a dataset from a subreddit called ADHD. The dataset conists of more than 300.000 posts.")
+    st.write("If you click on the tabs next to the 'Introduction' tab, you can see some graphs of those models or even test out your own ADHD index.")
 
 with tab2:
     st.header("Age and ADHD")
@@ -141,8 +142,8 @@ with tab2:
     st.altair_chart(c, use_container_width=True, theme="streamlit")
 
 with tab3:
-    st.title("Predictor - Do you have ADHD?")
-    st.subheader("Try out our ADHD predictor!")
+    st.title("Predictor - Test your ADHD index")
+    st.subheader("Try out our ADHD index predictor!")
     st.write("NB: This is not a real medical test, just a test for fun")
     df = read_process_data()
 
@@ -177,8 +178,9 @@ with tab3:
 
 with tab4:
     st.title("Topic Modeling")
-    st.subheader("On this page you'll see the most popular topics for the last 5 years")
-    st.write('WIP')
+    st.subheader("Still WIP") 
+    st.write("For the topic modeling, there is used a dataset which comes from a subreddit called ADHD.\
+    It is used to see the 9 most discussed topics and the most relevant terms for each topic in the last 5 years")
     # data1 = pd.read_csv('datasets/adhd2018.csv')
     # data2 = pd.read_csv('datasets/adhd2019.csv')
     # data3 = pd.read_csv('datasets/adhd2020.csv')
