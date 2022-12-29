@@ -297,6 +297,7 @@ with tab5:
     #Correlation heatmap
     fig1 = plt.figure(figsize=(18,2))
     sns.heatmap(pd.DataFrame(pca.components_, columns=df.columns), annot=True)
+    sns.set_theme()
     st.pyplot(fig1,)
 
 
