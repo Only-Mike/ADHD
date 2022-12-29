@@ -146,7 +146,7 @@ with tab2:
         scale=alt.Scale(zero=False),
         ),
         y='ADHD Index',
-        color=alt.value("ADHD Index"),
+        color="ADHD Index",
         tooltip=['Age:N', 'Gender', 'ADHD Index'])
 
     st.altair_chart(c, use_container_width=True)
