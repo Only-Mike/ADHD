@@ -141,7 +141,7 @@ with tab2:
     "What gender?",
     (0, 1,))
 
-    df = df[df.Gender.isin(gender_select)]
+    #df = df[df.Gender.isin(gender_select)]
 
     #line chart for age vs gender
     c = alt.Chart(df).mark_circle().encode(
