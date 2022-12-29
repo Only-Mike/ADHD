@@ -106,7 +106,9 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Introduction🔰", "Age and ADHD 🧒",
 
 with tab1:
     st.header("Introduction to this app")
-    st.subheader("More is coming soon")
+    st.write("This application has been developed in connection with a semester project on Aalborg University.")
+    st.write("All models are build on a dataset called ADHD 200, which consists of subjects diagnosed with ADHD and several relevant parameters for ADHD.")
+    st.write("")
 
 with tab2:
     st.header("Age and ADHD")
