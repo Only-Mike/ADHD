@@ -179,7 +179,7 @@ with tab4:
     st.subheader("Still WIP") 
     st.write("For the topic modeling, there is used a dataset which comes from a subreddit called ADHD.\
     It is used to see the 9 most discussed topics and the most relevant terms for each topic")
-    st.iframe("ldaADHD (1).html")
+    st.components.v1.html("ldaADHD (1).html", width=None, height=None, scrolling=False)
 
 with tab5:
     st.title("ADHD Clustering")
