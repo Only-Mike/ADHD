@@ -223,7 +223,7 @@ with tab4:
         </script>
             """,
             height=900,
-            width = 900,
+            width = 1300,
     )
 
 with tab5:
