@@ -227,6 +227,7 @@ with tab5:
     st.subheader("UMAP and K-means clustering")
     st.write("For this visualization, we have used K-means and UMAP")
 
+    @st.experimental_singleton
     with st.spinner('Proccesing data and creating cluster...'):
         umap_scaler = umap.UMAP()
         embeddings = umap_scaler.fit_transform(df_scaled)
