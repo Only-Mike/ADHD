@@ -106,7 +106,7 @@ with tab1:
     st.header("Introduction to this app")
     st.write("This application has been developed as an addition to a semester project on Business Data Science at Aalborg University Business School. The project was made in collaboration with ADHD Flow")
     st.write("All models, except the topic modelling, are build on a dataset called ADHD 200, which consists of subjects diagnosed with ADHD and several relevant parameters for ADHD.\
-    The topic modelling is build on a dataset from a subreddit called ADHD. The dataset conists of more than 300.000 posts.")
+    The topic modelling is build on a dataset from a subreddit called ADHD. The dataset consists of more than 300.000 posts.")
     st.write("If you click on the tabs next to the 'Introduction' tab, you can see some graphs of those models or even test out your own ADHD index.")
 
 with tab2:
